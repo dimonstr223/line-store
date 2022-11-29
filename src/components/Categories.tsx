@@ -1,7 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import useAppSelecror from '../hooks/useAppSelector'
-import { getCategories } from '../redux/categories/actions/categoriesAction'
+import {
+	getCategories,
+	setIsOpened,
+} from '../redux/categories/actions/categoriesAction'
 import { setCategoryName } from '../redux/products/actions/productsAction'
 
 import style from '../scss/components/Categories.module.scss'
@@ -16,6 +19,7 @@ const Categories: React.FC = () => {
 
 	const onCategoryClick = (item: string) => {
 		dispatch(setCategoryName(item))
+		dispatch(setIsOpened(false))
 	}
 
 	return (
