@@ -8,3 +8,7 @@ const setIsLoading = (payload: boolean) => ({
 	type: ProductsActionType.SET_IS_LOADING,
 	payload,
 })
+const setError = (payload: string) => ({
+	type: ProductsActionType.SET_ERROR,
+	payload,
+})
