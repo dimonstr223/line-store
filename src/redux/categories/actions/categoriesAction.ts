@@ -16,6 +16,10 @@ const setError = (payload: string): CategorisAction => ({
 	type: CategoriesActionType.SET_ERROR,
 	payload,
 })
+export const setIsOpened = (payload: boolean): CategorisAction => ({
+	type: CategoriesActionType.SET_IS_OPENED,
+	payload,
+})
 
 export const getCategories =
 	() => async (dispatch: Dispatch<CategorisAction>) => {
