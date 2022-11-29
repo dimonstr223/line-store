@@ -1,8 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+
 import useAppSelecror from '../../hooks/useAppSelector'
 import { getProducts } from '../../redux/products/actions/productsAction'
 import ProductsItem from './ProductsItem'
+
+import style from '../../scss/components/Products.module.scss'
 
 const Products: React.FC = () => {
 	const { products } = useAppSelecror(state => state.products)
@@ -14,7 +17,7 @@ const Products: React.FC = () => {
 
 	console.log(products)
 	return (
-		<div>
+		<div className={style.products}>
 			{products.map(item => (
 				<ProductsItem key={item.id} {...item} />
 			))}
