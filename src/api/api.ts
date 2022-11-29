@@ -8,6 +8,9 @@ export const productsAPI = {
 	getProducts() {
 		return instance.get('products')
 	},
+	getProductsOfCategory(categoryName: string) {
+		return instance.get(`products/category/${categoryName}`)
+	},
 }
 
 export const categoriesAPI = {

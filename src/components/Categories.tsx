@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import useAppSelecror from '../../hooks/useAppSelector'
-import { getCategories } from '../../redux/categories/actions/categoriesAction'
+import useAppSelecror from '../hooks/useAppSelector'
+import { getCategories } from '../redux/categories/actions/categoriesAction'
 
-import style from '../../scss/components/Categories.module.scss'
+import style from '../scss/components/Categories.module.scss'
 
 const Categories = () => {
 	const { categories } = useAppSelecror(state => state.categories)
