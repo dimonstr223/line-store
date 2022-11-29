@@ -21,7 +21,9 @@ const Header: React.FC = () => {
 			</a>
 			<a href='/cart'>
 				<div className={style.header__cart}>
-					<img src={cartIcon} alt='Cart' width={30} />
+					<div className={style.cart__wrapper}>
+						<img src={cartIcon} alt='Cart' width={35} />
+					</div>
 				</div>
 			</a>
 		</header>

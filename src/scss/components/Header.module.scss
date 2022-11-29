@@ -16,4 +16,25 @@
 			font-size: 30px;
 		}
 	}
+
+	.header__cart {
+		border-radius: 50%;
+		transition: box-shadow 0.3s;
+
+		.cart__wrapper {
+			border-radius: 50%;
+			transition: box-shadow 0.3s;
+		}
+
+		&:hover {
+			-webkit-box-shadow: 0px 0px 30px 3px rgba(147, 228, 233, 0.2) inset;
+			-moz-box-shadow: 0px 0px 30px 3px rgba(147, 228, 233, 0.2) inset;
+			box-shadow: 0px 0px 30px 3px rgba(147, 228, 233, 0.2) inset;
+			.cart__wrapper {
+				-webkit-box-shadow: 0px 0px 8px 3px rgba(147, 228, 233, 0.2);
+				-moz-box-shadow: 0px 0px 8px 3px rgba(147, 228, 233, 0.2);
+				box-shadow: 0px 0px 8px 3px rgba(147, 228, 233, 0.2);
+			}
+		}
+	}
 }
