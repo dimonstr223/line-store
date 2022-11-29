@@ -6,7 +6,7 @@ import { setCategoryName } from '../redux/products/actions/productsAction'
 
 import style from '../scss/components/Categories.module.scss'
 
-const Categories = () => {
+const Categories: React.FC = () => {
 	const { categories } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
