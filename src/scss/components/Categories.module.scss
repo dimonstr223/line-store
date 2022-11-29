@@ -1,7 +1,7 @@
 .categories {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	// gap: 20px;
 }
 .overlay {
 	position: fixed;
@@ -30,5 +30,29 @@
 		padding: 30px;
 		overflow-y: scroll;
 		scrollbar-width: 1px;
+
+		h3 {
+			font-size: 26px;
+			margin-bottom: 20px;
+		}
+
+		.item {
+			font-size: 20px;
+			cursor: pointer;
+			.wrapper {
+				padding: 10px;
+			}
+
+			&:hover {
+				-webkit-box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2);
+				-moz-box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2);
+				box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2);
+				.wrapper {
+					-webkit-box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2) inset;
+					-moz-box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2) inset;
+					box-shadow: 0px 0px 12px 3px rgba(147, 228, 233, 0.2) inset;
+				}
+			}
+		}
 	}
 }

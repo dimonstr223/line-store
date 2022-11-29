@@ -33,7 +33,9 @@ const Categories: React.FC = () => {
 							key={item + index}
 							className={style.item}
 						>
-							{item}
+							<div className={style.wrapper}>
+								{item[0].toUpperCase().concat(item.slice(1))}
+							</div>
 						</li>
 					))}
 				</ul>

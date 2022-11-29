@@ -32,7 +32,7 @@ const Products: React.FC = () => {
 	return (
 		<>
 			{isOpened && <Categories />}
-			<button onClick={() => onCategoryClick()}>
+			<button onClick={() => onCategoryClick()} className={style.categoryBtn}>
 				<h1>{categoryName[0].toUpperCase().concat(categoryName.slice(1))}</h1>
 			</button>
 			<div className={style.products}>

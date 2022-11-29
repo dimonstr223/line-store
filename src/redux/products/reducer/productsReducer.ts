@@ -8,7 +8,7 @@ const initialState: ProductsState = {
 	products: [],
 	isLoading: false,
 	error: null,
-	categoryName: '',
+	categoryName: 'smartphones',
 }
 
 const productsReducer = (
