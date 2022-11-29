@@ -7,7 +7,6 @@ import Categories from './components/Categories'
 const App: React.FC = () => {
 	return (
 		<div className='app'>
-			<Categories />
 			<div className='header__wrapper'>
 				<div className='container'>
 					<Header />

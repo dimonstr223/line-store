@@ -29,7 +29,7 @@ const Categories: React.FC = () => {
 				<ul className={style.categories}>
 					{categories.map((item, index) => (
 						<li
-							onClick={e => onCategoryClick(item)}
+							onClick={() => onCategoryClick(item)}
 							key={item + index}
 							className={style.item}
 						>

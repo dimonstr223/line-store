@@ -6,21 +6,28 @@ import { getProducts } from '../../redux/products/actions/productsAction'
 import ProductsItem from './ProductsItem'
 
 import style from '../../scss/components/Products.module.scss'
+import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
+import Categories from '../Categories'
 
 const Products: React.FC = () => {
-	const { products } = useAppSelecror(state => state.products)
+	const { products, categoryName } = useAppSelecror(state => state.products)
+	const { isOpened } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(getProducts())
 	}, [])
 
-	const onCategoryClick = () => {}
+	const onCategoryClick = () => {
+		dispatch(setIsOpened(true))
+	}
 
 	return (
 		<>
-			<button onClick={() => onCategoryClick()}></button>
-			<h1>All products</h1>
+			{isOpened && <Categories />}
+			<button onClick={() => onCategoryClick()}>
+				<h1>All products</h1>
+			</button>
 			<div className={style.products}>
 				{products.map(item => (
 					<ProductsItem key={item.id} {...item} />
