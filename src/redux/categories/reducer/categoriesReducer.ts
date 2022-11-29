@@ -8,6 +8,7 @@ const initialState: CategoriesState = {
 	categories: [],
 	isLoading: false,
 	error: null,
+	isOpened: false,
 }
 
 const categoriesReducer = (
@@ -21,6 +22,8 @@ const categoriesReducer = (
 			return { ...state, error: action.payload }
 		case CategoriesActionType.SET_IS_LOADING:
 			return { ...state, isLoading: action.payload }
+		case CategoriesActionType.SET_IS_OPENED:
+			return { ...state, isOpened: action.payload }
 		default:
 			return state
 	}
