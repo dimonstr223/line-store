@@ -1,12 +1,16 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import useAppSelecror from '../../hooks/useAppSelector'
 import { getCategories } from '../../redux/categories/actions/categoriesAction'
 
 const Categories = () => {
+	const { categories } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
+
 	React.useEffect(() => {
 		dispatch(getCategories())
 	}, [])
+
 	return (
 		<div className='overlay'>
 			<div className='drawer'>
