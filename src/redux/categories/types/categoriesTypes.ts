@@ -1,6 +1,6 @@
 export interface CategoriesState {
 	categories: string[]
-	isLoading: false
+	isLoading: boolean
 	error: null | string
 }
 
