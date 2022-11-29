@@ -8,6 +8,7 @@ const initialState: ProductsState = {
 	products: [],
 	isLoading: false,
 	error: null,
+	categoryName: '',
 }
 
 const productsReducer = (
@@ -21,6 +22,8 @@ const productsReducer = (
 			return { ...state, error: action.payload }
 		case ProductsActionType.SET_IS_LOADING:
 			return { ...state, isLoading: action.payload }
+		case ProductsActionType.SET_CATEGORY_NAME:
+			return { ...state, categoryName: action.payload }
 		default:
 			return state
 	}
