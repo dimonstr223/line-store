@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+const instance = axios.create({
+	baseURL: 'https://dummyjson.com/',
+})
+
 const productsAPI = {
 	getProducts() {
-		return axios.get('https://dummyjson.com/products')
+		return instance.get('products')
 	},
 }
