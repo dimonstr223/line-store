@@ -2,7 +2,10 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import useAppSelecror from '../../hooks/useAppSelector'
-import { getProducts } from '../../redux/products/actions/productsAction'
+import {
+	getProducts,
+	getProductsOfCategory,
+} from '../../redux/products/actions/productsAction'
 import ProductsItem from './ProductsItem'
 
 import style from '../../scss/components/Products.module.scss'
@@ -18,6 +21,10 @@ const Products: React.FC = () => {
 		dispatch(getProducts())
 	}, [])
 
+	React.useEffect(() => {
+		dispatch(getProductsOfCategory(categoryName))
+	}, [categoryName])
+
 	const onCategoryClick = () => {
 		dispatch(setIsOpened(true))
 	}
@@ -26,7 +33,7 @@ const Products: React.FC = () => {
 		<>
 			{isOpened && <Categories />}
 			<button onClick={() => onCategoryClick()}>
-				<h1>All products</h1>
+				<h1>{categoryName}</h1>
 			</button>
 			<div className={style.products}>
 				{products.map(item => (
