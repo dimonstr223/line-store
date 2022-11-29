@@ -7,6 +7,26 @@
 	box-sizing: border-box;
 }
 
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #3a68b88c #00ffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #00ffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #3a68b875;
+	border-radius: 9px;
+	border: 0px none #ffffff;
+}
 html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;

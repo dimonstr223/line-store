@@ -1,16 +1,18 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+
 import useAppSelecror from '../hooks/useAppSelector'
 import {
 	getCategories,
 	setIsOpened,
 } from '../redux/categories/actions/categoriesAction'
 import { setCategoryName } from '../redux/products/actions/productsAction'
+import closeIcon from '../assets/images/close-icon.svg'
 
 import style from '../scss/components/Categories.module.scss'
 
 const Categories: React.FC = () => {
-	const { categories } = useAppSelecror(state => state.categories)
+	const { categories, isOpened } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
@@ -23,9 +25,20 @@ const Categories: React.FC = () => {
 	}
 
 	return (
-		<div className={style.overlay}>
+		<div
+			onClick={() => dispatch(setIsOpened(false))}
+			className={isOpened ? style.overlay : style.overlayClosed}
+		>
 			<div className={style.drawer}>
-				<h3 className={style.title}>Categories</h3>
+				<div className={style.top__wrapper}>
+					<h3 className={style.title}>Categories</h3>
+					<button
+						onClick={() => dispatch(setIsOpened(false))}
+						className={style.closeBtn}
+					>
+						<img src={closeIcon} alt='close' width={25} />
+					</button>
+				</div>
 				<ul className={style.categories}>
 					{categories.map((item, index) => (
 						<li
