@@ -16,7 +16,9 @@ const Categories = () => {
 			<div className='drawer'>
 				<h3>Categories</h3>
 				<ul className='categories'>
-					<li>Phones</li>
+					{categories.map((item, index) => (
+						<li key={item + index}>{item}</li>
+					))}
 				</ul>
 			</div>
 		</div>
