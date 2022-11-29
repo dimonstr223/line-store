@@ -4,7 +4,7 @@ const instance = axios.create({
 	baseURL: 'https://dummyjson.com/',
 })
 
-const productsAPI = {
+export const productsAPI = {
 	getProducts() {
 		return instance.get('products')
 	},
