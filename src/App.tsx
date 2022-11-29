@@ -2,10 +2,12 @@ import React from 'react'
 import './scss/App.scss'
 import Header from './components/Header'
 import Products from './components/Products'
+import Categories from './components/Products/Categories'
 
 const App: React.FC = () => {
 	return (
 		<div className='app'>
+			<Categories />
 			<div className='header__wrapper'>
 				<div className='container'>
 					<Header />

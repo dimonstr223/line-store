@@ -15,13 +15,18 @@ const Products: React.FC = () => {
 		dispatch(getProducts())
 	}, [])
 
-	console.log(products)
+	const onCategoryClick = () => {}
+
 	return (
-		<div className={style.products}>
-			{products.map(item => (
-				<ProductsItem key={item.id} {...item} />
-			))}
-		</div>
+		<>
+			<button onClick={() => onCategoryClick()}></button>
+			<h1>All products</h1>
+			<div className={style.products}>
+				{products.map(item => (
+					<ProductsItem key={item.id} {...item} />
+				))}
+			</div>
+		</>
 	)
 }
 
