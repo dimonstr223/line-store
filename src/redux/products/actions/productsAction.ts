@@ -18,7 +18,7 @@ const setError = (payload: string): ProductsAction => ({
 	type: ProductsActionType.SET_ERROR,
 	payload,
 })
-const setCategoryName = (payload: string): ProductsAction => ({
+export const setCategoryName = (payload: string): ProductsAction => ({
 	type: ProductsActionType.SET_CATEGORY_NAME,
 	payload,
 })
