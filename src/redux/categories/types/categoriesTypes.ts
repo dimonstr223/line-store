@@ -10,7 +10,7 @@ export enum CategoriesActionType {
 	SET_ERROR = 'SET_ERROR',
 }
 
-interface setCategory {
+interface setCategories {
 	type: CategoriesActionType.SET_CATEGORIES
 	payload: string[]
 }
@@ -24,4 +24,4 @@ interface setError {
 	payload: string
 }
 
-export type CategorisAction = setCategory | setError | setIsLoading
+export type CategorisAction = setCategories | setError | setIsLoading
