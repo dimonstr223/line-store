@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import useAppSelecror from '../hooks/useAppSelector'
-import { getProducts } from '../redux/products/actions/productsAction'
+import useAppSelecror from '../../hooks/useAppSelector'
+import { getProducts } from '../../redux/products/actions/productsAction'
+import ProductsItem from './ProductsItem'
 
 const Products: React.FC = () => {
 	const { products } = useAppSelecror(state => state.products)
@@ -12,7 +13,13 @@ const Products: React.FC = () => {
 	}, [])
 
 	console.log(products)
-	return <div>Products</div>
+	return (
+		<div>
+			{products.map(item => (
+				<ProductsItem key={item.id} {...item} />
+			))}
+		</div>
+	)
 }
 
 export default Products
