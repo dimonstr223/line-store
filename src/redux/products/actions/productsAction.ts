@@ -33,3 +33,16 @@ export const getProducts = () => async (dispatch: Dispatch<ProductsAction>) => {
 		dispatch(setError(`Ошибка при загрузге товаров...${error}`))
 	}
 }
+
+export const getProductsOfCategory =
+	(categoryName: string) => async (dispatch: Dispatch<ProductsAction>) => {
+		try {
+			dispatch(setIsLoading(true))
+			const { data } = await productsAPI.getProductsOfCategory(categoryName)
+			dispatch(setProducts(data.products))
+			dispatch(setCategoryName(categoryName))
+			dispatch(setIsLoading(false))
+		} catch (error) {
+			dispatch(setError(`Ошибка при загрузке продуктов...${error}`))
+		}
+	}
