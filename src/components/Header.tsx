@@ -19,6 +19,7 @@ const Header: React.FC = () => {
 					<h3 className={style.logo__text}>LineStore</h3>
 				</div>
 			</a>
+			<div className='search'></div>
 			<a href='/cart'>
 				<div className={style.header__cart}>
 					<div className={style.cart__wrapper}>
