@@ -6,7 +6,7 @@ import {
 	ProductsActionType,
 } from './../types/productsTypes'
 
-const setProducts = (payload: Product[]): ProductsAction => ({
+export const setProducts = (payload: Product[]): ProductsAction => ({
 	type: ProductsActionType.SET_PRODUCTS,
 	payload,
 })
