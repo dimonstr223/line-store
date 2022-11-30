@@ -1,3 +1,5 @@
+@import '../libs/vars';
+
 .productItem {
 	margin: 0 auto;
 	padding: 30px;
@@ -5,11 +7,7 @@
 	width: 260px;
 	cursor: pointer;
 	background: rgb(26, 33, 46);
-	background: linear-gradient(
-		0deg,
-		rgba(26, 33, 46, 1) 0%,
-		rgba(13, 20, 34, 1) 100%
-	);
+	background: $itemBG;
 
 	transition: box-shadow 0.2s;
 

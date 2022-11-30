@@ -1,0 +1,55 @@
+@import '../libs/vars';
+
+.search {
+	position: relative;
+	border-radius: 10px;
+	transition: box-shadow 0.3s;
+
+	&__img {
+		position: absolute;
+		top: 8px;
+		left: 10px;
+		opacity: 0.5;
+	}
+
+	.wrapper {
+		position: absolute;
+		font-size: 0;
+		top: 14px;
+		right: 12px;
+		opacity: 0.5;
+		cursor: pointer;
+
+		&:hover {
+			@extend %shadow;
+
+			.close__img {
+				@extend %shadowInset;
+			}
+		}
+	}
+
+	&__input {
+		padding: 13px 40px 13px 45px;
+		background: $itemBG;
+		font-size: 18px;
+		width: 400px;
+		border-radius: 10px;
+		border: 10px;
+		color: #fff;
+		transition: box-shadow 0.2s;
+
+		&:hover {
+			@extend %shadow;
+		}
+
+		&:focus {
+			@extend %shadow;
+		}
+
+		&::placeholder {
+			color: $blueAccent;
+			opacity: 0.5;
+		}
+	}
+}

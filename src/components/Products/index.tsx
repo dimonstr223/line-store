@@ -10,8 +10,10 @@ import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 
 import ProductsItem from './ProductsItem'
 import Categories from '../Categories'
-import style from '../../scss/components/Products.module.scss'
 import Pagination from '../Pagination'
+import Search from '../Search'
+
+import style from '../../scss/components/Products.module.scss'
 
 const Products: React.FC = () => {
 	const { products, categoryName, limit, skipProducts, totalProducts } =
@@ -35,21 +37,25 @@ const Products: React.FC = () => {
 		<>
 			{/* {isOpened && <Categories />} */}
 			<Categories />
-			<button onClick={() => onTitleClick()} className={style.categoryBtn}>
-				<h1>
-					{categoryName
-						? categoryName[0].toUpperCase().concat(categoryName.slice(1))
-						: 'All products'}
-				</h1>
-			</button>
-			<div id='container'>
-				<div className={style.products}>
-					{products.map(item => (
-						<ProductsItem key={item.id} {...item} />
-					))}
+			<div className={style.sortingPanel}>
+				<button onClick={() => onTitleClick()} className={style.categoryBtn}>
+					<h1>
+						{categoryName
+							? categoryName[0].toUpperCase().concat(categoryName.slice(1))
+							: 'All products'}
+					</h1>
+				</button>
+				<Search />
+				<div className={style.sort}>
+					<b>Sort by :</b> rating
 				</div>
-				{!categoryName && <Pagination />}
 			</div>
+			<div className={style.products}>
+				{products.map(item => (
+					<ProductsItem key={item.id} {...item} />
+				))}
+			</div>
+			{!categoryName && <Pagination />}
 		</>
 	)
 }

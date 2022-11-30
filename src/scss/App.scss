@@ -14,11 +14,6 @@
 }
 
 .products__wrapper {
-	background: rgb(10, 17, 31);
-	background: linear-gradient(
-		0deg,
-		rgba(10, 17, 31, 1) 0%,
-		rgba(8, 16, 30, 1) 100%
-	);
+	background: $mainBG;
 	min-height: calc(100vh - 100px);
 }
