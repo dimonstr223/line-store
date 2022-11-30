@@ -22,6 +22,14 @@ export const setCategoryName = (payload: string): ProductsAction => ({
 	type: ProductsActionType.SET_CATEGORY_NAME,
 	payload,
 })
+export const setSkipProducts = (payload: number): ProductsAction => ({
+	type: ProductsActionType.SET_SKIP_PRODUCTS,
+	payload,
+})
+export const setTotalProducts = (payload: number): ProductsAction => ({
+	type: ProductsActionType.SET_TOTAL_PRODUCTS,
+	payload,
+})
 
 export const getProducts =
 	(limit: number) => async (dispatch: Dispatch<ProductsAction>) => {
