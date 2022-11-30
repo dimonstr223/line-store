@@ -10,8 +10,8 @@ const initialState: ProductsState = {
 	error: null,
 	categoryName: '',
 	limit: 8,
-	skip: 0,
-	total: 0,
+	skipProducts: 0,
+	totalProducts: 0
 }
 
 const productsReducer = (
