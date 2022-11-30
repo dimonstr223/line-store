@@ -16,7 +16,7 @@ import Pagination from '../Pagination'
 const Products: React.FC = () => {
 	const { products, categoryName, limit, skipProducts, totalProducts } =
 		useAppSelecror(state => state.products)
-	const { isOpened } = useAppSelecror(state => state.categories)
+	const { categories } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
@@ -26,8 +26,6 @@ const Products: React.FC = () => {
 			dispatch(getProducts(limit, skipProducts))
 		}
 	}, [categoryName])
-
-	// React.useEffect(() => {}, [categoryName])
 
 	const onTitleClick = () => {
 		dispatch(setIsOpened(true))
@@ -50,7 +48,7 @@ const Products: React.FC = () => {
 						<ProductsItem key={item.id} {...item} />
 					))}
 				</div>
-				{totalProducts === 100 && <Pagination />}
+				{!categoryName && <Pagination />}
 			</div>
 		</>
 	)
