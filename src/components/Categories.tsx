@@ -6,7 +6,10 @@ import {
 	getCategories,
 	setIsOpened,
 } from '../redux/categories/actions/categoriesAction'
-import { setCategoryName } from '../redux/products/actions/productsAction'
+import {
+	getProducts,
+	setCategoryName,
+} from '../redux/products/actions/productsAction'
 import closeIcon from '../assets/images/close-icon.svg'
 
 import style from '../scss/components/Categories.module.scss'
@@ -18,12 +21,18 @@ const Categories: React.FC = () => {
 	React.useEffect(() => {
 		dispatch(getCategories())
 	}, [])
+	React.useEffect(() => {
+		onAllProductsClick()
+	}, [])
 
 	const onCategoryClick = (item: string) => {
 		dispatch(setCategoryName(item))
 		dispatch(setIsOpened(false))
 	}
-
+	const onAllProductsClick = () => {
+		dispatch(setCategoryName(''))
+		dispatch(getProducts())
+	}
 	return (
 		<div
 			onClick={() => dispatch(setIsOpened(false))}
@@ -40,6 +49,9 @@ const Categories: React.FC = () => {
 					</button>
 				</div>
 				<ul className={style.categories}>
+					<li onClick={() => onAllProductsClick()} className={style.item}>
+						<div className={style.wrapper}>All products</div>
+					</li>
 					{categories.map((item, index) => (
 						<li
 							onClick={() => onCategoryClick(item)}

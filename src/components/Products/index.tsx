@@ -6,11 +6,11 @@ import {
 	getProducts,
 	getProductsOfCategory,
 } from '../../redux/products/actions/productsAction'
-import ProductsItem from './ProductsItem'
-
-import style from '../../scss/components/Products.module.scss'
 import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
+
+import ProductsItem from './ProductsItem'
 import Categories from '../Categories'
+import style from '../../scss/components/Products.module.scss'
 
 const Products: React.FC = () => {
 	const { products, categoryName } = useAppSelecror(state => state.products)
@@ -18,14 +18,16 @@ const Products: React.FC = () => {
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
-		dispatch(getProducts())
-	}, [])
-
-	React.useEffect(() => {
-		dispatch(getProductsOfCategory(categoryName))
+		if (categoryName) {
+			dispatch(getProductsOfCategory(categoryName))
+		} else {
+			dispatch(getProducts())
+		}
 	}, [categoryName])
 
-	const onCategoryClick = () => {
+	// React.useEffect(() => {}, [categoryName])
+
+	const onTitleClick = () => {
 		dispatch(setIsOpened(true))
 	}
 
@@ -33,8 +35,12 @@ const Products: React.FC = () => {
 		<>
 			{/* {isOpened && <Categories />} */}
 			<Categories />
-			<button onClick={() => onCategoryClick()} className={style.categoryBtn}>
-				<h1>{categoryName[0].toUpperCase().concat(categoryName.slice(1))}</h1>
+			<button onClick={() => onTitleClick()} className={style.categoryBtn}>
+				<h1>
+					{categoryName
+						? categoryName[0].toUpperCase().concat(categoryName.slice(1))
+						: 'All products'}
+				</h1>
 			</button>
 			<div className={style.products}>
 				{products.map(item => (
