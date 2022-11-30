@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import { useDispatch } from 'react-redux'
+import useAppSelecror from '../hooks/useAppSelector'
+import { getProducts, setSkipProducts } from '../redux/products/actions/productsAction'
 
 const Pagination: React.FC = ({}) => {
-	const handlePageClick = (event: { selected: number }) => {}
+	const {limit,skipProducts} = useAppSelecror(state => state.products)
+	const dispatch = useDispatch()
+
+const onLoadMoreClick () => {
+	dispatch(setSkipProducts(skipProducts + limit))
+	dispatch(getProducts(limit, skipProducts))
+}
 
 	return (
 		<>
-			<ReactPaginate
-				breakLabel='...'
-				nextLabel='next >'
-				//@ts-ignore
-				onPageChange={handlePageClick}
-				pageRangeDisplayed={5}
-				pageCount={6}
-				previousLabel='< previous'
-				// renderOnZeroPageCount={null}
-			/>
+			<button onClick={() => onLoadMoreClick()}>Load more</button>
 		</>
 	)
 }
