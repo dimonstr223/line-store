@@ -27,8 +27,10 @@ const productsReducer = (
 			return { ...state, isLoading: action.payload }
 		case ProductsActionType.SET_CATEGORY_NAME:
 			return { ...state, categoryName: action.payload }
-		case ProductsActionType.SET_SKIP_PRODUCTS:
-			return { ...state, skipProducts: action.payload }
+		case ProductsActionType.INCREMENT_SKIP_PRODUCTS:
+			return { ...state, skipProducts: state.skipProducts + state.limit }
+		case ProductsActionType.DECREMENT_SKIP_PRODUCTS:
+			return { ...state, skipProducts: state.skipProducts - state.limit }
 		case ProductsActionType.SET_TOTAL_PRODUCTS:
 			return { ...state, totalProducts: action.payload }
 		default:

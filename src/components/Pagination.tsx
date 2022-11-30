@@ -11,14 +11,23 @@ const Pagination: React.FC = ({}) => {
 	const { limit, skipProducts } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
-	const onLoadMoreClick = () => {
+	const onLoadPrevClick = () => {
+		dispatch(setSkipProducts(skipProducts - limit))
+		dispatch(getProducts(limit, skipProducts))
+	}
+
+	const onLoadNextClick = () => {
 		dispatch(setSkipProducts(skipProducts + limit))
+		console.log(skipProducts)
 		dispatch(getProducts(limit, skipProducts))
 	}
 
 	return (
 		<>
-			<button onClick={() => onLoadMoreClick()}>Load more</button>
+			<button onClick={() => onLoadPrevClick()} disabled={skipProducts === 0}>
+				Load prev
+			</button>
+			<button onClick={() => onLoadNextClick()}>Load next</button>
 		</>
 	)
 }
