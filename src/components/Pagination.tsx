@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactPaginate from 'react-paginate'
 import { useDispatch } from 'react-redux'
+
 import useAppSelecror from '../hooks/useAppSelector'
 import {
 	decrementSkipProducts,
@@ -10,6 +10,8 @@ import {
 } from '../redux/products/actions/productsAction'
 import { countPages } from '../utils/countPages'
 import { countToSkip } from '../utils/countToSkip'
+
+import style from '../scss/components/Pagination.module.scss'
 
 const Pagination: React.FC = ({}) => {
 	const { limit, skipProducts, products, totalProducts, isLoading } =
@@ -34,27 +36,33 @@ const Pagination: React.FC = ({}) => {
 	const pages = countPages(totalProducts, limit)
 
 	return (
-		<>
+		<div className={style.pagination}>
 			<button
+				className={style.button}
 				onClick={() => onLoadPrevClick()}
 				disabled={skipProducts === 0 || isLoading}
 			>
 				Load prev
 			</button>
-			<ul>
+			<ul className={style.pagesList}>
 				{pages.map(item => (
-					<li onClick={() => onClickPage(item)} key={item}>
-						{item}
+					<li
+						className={style.page}
+						onClick={() => onClickPage(item)}
+						key={item}
+					>
+						<div className={style.wrapper}>{item}</div>
 					</li>
 				))}
 			</ul>
 			<button
+				className={style.button}
 				onClick={onLoadNextClick}
 				disabled={products.some(item => item.id === totalProducts || isLoading)}
 			>
 				Load next
 			</button>
-		</>
+		</div>
 	)
 }
 
