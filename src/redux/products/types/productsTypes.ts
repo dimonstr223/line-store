@@ -20,6 +20,7 @@ export interface ProductsState {
 	limit: number
 	skipProducts: number
 	totalProducts: number
+	currentPage: number
 }
 
 export enum ProductsActionType {
@@ -31,6 +32,7 @@ export enum ProductsActionType {
 	DECREMENT_SKIP_PRODUCTS = 'DECREMENT_SKIP_PRODUCTS',
 	SET_SKIP_PRODUCTS = 'SET_SKIP_PRODUCTS',
 	SET_TOTAL_PRODUCTS = 'SET_TOTAL_PRODUCTS',
+	SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
 }
 
 interface setProducts {
@@ -63,6 +65,10 @@ interface setTotalProducts {
 	type: ProductsActionType.SET_TOTAL_PRODUCTS
 	payload: number
 }
+interface setCurrentPage {
+	type: ProductsActionType.SET_CURRENT_PAGE
+	payload: number
+}
 
 export type ProductsAction =
 	| setProducts
@@ -73,3 +79,4 @@ export type ProductsAction =
 	| decrementSkipProducts
 	| setSkipProducts
 	| setTotalProducts
+	| setCurrentPage

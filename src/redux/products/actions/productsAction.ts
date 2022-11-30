@@ -37,6 +37,10 @@ const setTotalProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_TOTAL_PRODUCTS,
 	payload,
 })
+export const setCurrentPage = (payload: number): ProductsAction => ({
+	type: ProductsActionType.SET_CURRENT_PAGE,
+	payload,
+})
 
 export const getProducts =
 	(limit: number, skipProducts: number) =>

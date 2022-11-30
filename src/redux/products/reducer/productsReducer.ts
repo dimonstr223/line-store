@@ -12,6 +12,7 @@ const initialState: ProductsState = {
 	limit: 12,
 	skipProducts: 0,
 	totalProducts: 0,
+	currentPage: 1,
 }
 
 const productsReducer = (
@@ -35,6 +36,8 @@ const productsReducer = (
 			return { ...state, skipProducts: action.payload }
 		case ProductsActionType.SET_TOTAL_PRODUCTS:
 			return { ...state, totalProducts: action.payload }
+		case ProductsActionType.SET_CURRENT_PAGE:
+			return { ...state, currentPage: action.payload }
 		default:
 			return state
 	}
