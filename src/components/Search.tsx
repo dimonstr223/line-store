@@ -6,11 +6,21 @@ import closeIcon from '../assets/images/close-icon.svg'
 import style from '../scss/components/Search.module.scss'
 import useAppSelecror from '../hooks/useAppSelector'
 import { useDispatch } from 'react-redux'
-import { setSearchValue } from '../redux/filter/actions/filterActions'
+import {
+	getProudctsFromSearch,
+	setSearchValue,
+} from '../redux/filter/actions/filterActions'
+import { Dispatch } from 'redux'
+import { FilterAction } from '../redux/filter/types/filterTypes'
+import { ProductsAction } from '../redux/products/types/productsTypes'
 
 const Search: React.FC = () => {
 	const { searchValue } = useAppSelecror(state => state.filter)
-	const dispatch = useDispatch()
+	const dispatch: any = useDispatch()
+
+	React.useEffect(() => {
+		searchValue && dispatch(getProudctsFromSearch(searchValue))
+	}, [searchValue])
 
 	const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		dispatch(setSearchValue(event.target.value))

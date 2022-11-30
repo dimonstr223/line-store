@@ -1,6 +1,7 @@
 export interface FilterState {
 	searchValue: string
 	isLoading: boolean
+	error: string | null
 }
 
 export enum FilterActionType {

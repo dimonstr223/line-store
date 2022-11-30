@@ -9,9 +9,24 @@ export const setSearchValue = (payload: string): FilterAction => ({
 	payload,
 })
 
+const setIsLoadin = (payload: boolean): FilterAction => ({
+	type: FilterActionType.SET_IS_LOADING,
+	payload,
+})
+const setError = (payload: string): FilterAction => ({
+	type: FilterActionType.SET_ERROR,
+	payload,
+})
+
 export const getProudctsFromSearch =
 	(searchValue: string) =>
 	async (dispatch: Dispatch<FilterAction | ProductsAction>) => {
-		const { data } = await productsAPI.getProudctsFromSearch(searchValue)
-		dispatch(setProducts(data.products))
+		try {
+			dispatch(setIsLoadin(true))
+			const { data } = await productsAPI.getProudctsFromSearch(searchValue)
+			dispatch(setProducts(data.products))
+			dispatch(setIsLoadin(false))
+		} catch (error) {
+			dispatch(setError(`Ошибка при загрузке продукто...${error}`))
+		}
 	}
