@@ -11,6 +11,9 @@ export const productsAPI = {
 	getProductsOfCategory(categoryName: string) {
 		return instance.get(`products/category/${categoryName}`)
 	},
+	getProductsOfSearch(searchValue: string) {
+		return instance.get(`products/search?q=${searchValue}`)
+	},
 }
 
 export const categoriesAPI = {
