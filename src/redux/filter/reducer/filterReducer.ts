@@ -1,4 +1,8 @@
-import { FilterState, FilterAction } from './../types/filterTypes'
+import {
+	FilterState,
+	FilterAction,
+	FilterActionType,
+} from './../types/filterTypes'
 
 const initialState: FilterState = {
 	searchValue: '',
@@ -9,6 +13,8 @@ const filterReducer = (
 	action: FilterAction
 ): FilterState => {
 	switch (action.type) {
+		case FilterActionType.SET_SEARCH_VALUE:
+			return { ...state, searchValue: action.payload }
 		default:
 			return state
 	}
