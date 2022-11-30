@@ -26,7 +26,7 @@ export const setSkipProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_SKIP_PRODUCTS,
 	payload,
 })
-export const setTotalProducts = (payload: number): ProductsAction => ({
+const setTotalProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_TOTAL_PRODUCTS,
 	payload,
 })
@@ -37,6 +37,7 @@ export const getProducts =
 			dispatch(setIsLoading(true))
 			const { data } = await productsAPI.getProducts(limit)
 			dispatch(setProducts(data.products))
+			dispatch(setTotalProducts(data.total))
 			dispatch(setIsLoading(false))
 		} catch (error) {
 			dispatch(setError(`Ошибка при загрузге товаров...${error}`))
