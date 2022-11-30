@@ -11,6 +11,7 @@ import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 import ProductsItem from './ProductsItem'
 import Categories from '../Categories'
 import style from '../../scss/components/Products.module.scss'
+import Pagination from '../Pagination'
 
 const Products: React.FC = () => {
 	const { products, categoryName, limit } = useAppSelecror(
@@ -44,10 +45,13 @@ const Products: React.FC = () => {
 						: 'All products'}
 				</h1>
 			</button>
-			<div className={style.products}>
-				{products.map(item => (
-					<ProductsItem key={item.id} {...item} />
-				))}
+			<div id='container'>
+				<div className={style.products}>
+					{products.map(item => (
+						<ProductsItem key={item.id} {...item} />
+					))}
+				</div>
+				<Pagination />
 			</div>
 		</>
 	)

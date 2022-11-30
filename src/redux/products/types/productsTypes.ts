@@ -18,6 +18,8 @@ export interface ProductsState {
 	error: null | string
 	categoryName: string
 	limit: number
+	skip: number
+	total: number
 }
 
 export enum ProductsActionType {
