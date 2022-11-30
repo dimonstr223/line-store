@@ -17,6 +17,7 @@ export interface ProductsState {
 	isLoading: boolean
 	error: null | string
 	categoryName: string
+	limit: number
 }
 
 export enum ProductsActionType {

@@ -23,16 +23,17 @@ export const setCategoryName = (payload: string): ProductsAction => ({
 	payload,
 })
 
-export const getProducts = () => async (dispatch: Dispatch<ProductsAction>) => {
-	try {
-		dispatch(setIsLoading(true))
-		const { data } = await productsAPI.getProducts()
-		dispatch(setProducts(data.products))
-		dispatch(setIsLoading(false))
-	} catch (error) {
-		dispatch(setError(`Ошибка при загрузге товаров...${error}`))
+export const getProducts =
+	(limit: number) => async (dispatch: Dispatch<ProductsAction>) => {
+		try {
+			dispatch(setIsLoading(true))
+			const { data } = await productsAPI.getProducts(limit)
+			dispatch(setProducts(data.products))
+			dispatch(setIsLoading(false))
+		} catch (error) {
+			dispatch(setError(`Ошибка при загрузге товаров...${error}`))
+		}
 	}
-}
 
 export const getProductsOfCategory =
 	(categoryName: string) => async (dispatch: Dispatch<ProductsAction>) => {

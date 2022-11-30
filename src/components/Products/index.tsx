@@ -13,7 +13,9 @@ import Categories from '../Categories'
 import style from '../../scss/components/Products.module.scss'
 
 const Products: React.FC = () => {
-	const { products, categoryName } = useAppSelecror(state => state.products)
+	const { products, categoryName, limit } = useAppSelecror(
+		state => state.products
+	)
 	const { isOpened } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
@@ -21,7 +23,7 @@ const Products: React.FC = () => {
 		if (categoryName) {
 			dispatch(getProductsOfCategory(categoryName))
 		} else {
-			dispatch(getProducts())
+			dispatch(getProducts(limit))
 		}
 	}, [categoryName])
 

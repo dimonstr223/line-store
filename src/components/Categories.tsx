@@ -16,6 +16,7 @@ import style from '../scss/components/Categories.module.scss'
 
 const Categories: React.FC = () => {
 	const { categories, isOpened } = useAppSelecror(state => state.categories)
+	const { limit } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
@@ -31,7 +32,7 @@ const Categories: React.FC = () => {
 	}
 	const onAllProductsClick = () => {
 		dispatch(setCategoryName(''))
-		dispatch(getProducts())
+		dispatch(getProducts(limit))
 	}
 	return (
 		<div

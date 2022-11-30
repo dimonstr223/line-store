@@ -9,6 +9,7 @@ const initialState: ProductsState = {
 	isLoading: false,
 	error: null,
 	categoryName: '',
+	limit: 8,
 }
 
 const productsReducer = (
