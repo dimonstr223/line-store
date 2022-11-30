@@ -5,8 +5,8 @@ const instance = axios.create({
 })
 
 export const productsAPI = {
-	getProducts(limit: number) {
-		return instance.get(`products?limit=${limit}`)
+	getProducts(limit: number, skipProducts: number) {
+		return instance.get(`products?limit=${limit}&skip=${skipProducts}`)
 	},
 	getProductsOfCategory(categoryName: string) {
 		return instance.get(`products/category/${categoryName}`)

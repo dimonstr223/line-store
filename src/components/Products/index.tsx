@@ -14,7 +14,7 @@ import style from '../../scss/components/Products.module.scss'
 import Pagination from '../Pagination'
 
 const Products: React.FC = () => {
-	const { products, categoryName, limit } = useAppSelecror(
+	const { products, categoryName, limit, skipProducts } = useAppSelecror(
 		state => state.products
 	)
 	const { isOpened } = useAppSelecror(state => state.categories)
@@ -24,7 +24,7 @@ const Products: React.FC = () => {
 		if (categoryName) {
 			dispatch(getProductsOfCategory(categoryName))
 		} else {
-			dispatch(getProducts(limit))
+			dispatch(getProducts(limit, skipProducts))
 		}
 	}, [categoryName])
 

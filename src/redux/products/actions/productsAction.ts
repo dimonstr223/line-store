@@ -32,10 +32,11 @@ const setTotalProducts = (payload: number): ProductsAction => ({
 })
 
 export const getProducts =
-	(limit: number) => async (dispatch: Dispatch<ProductsAction>) => {
+	(limit: number, skipProducts: number) =>
+	async (dispatch: Dispatch<ProductsAction>) => {
 		try {
 			dispatch(setIsLoading(true))
-			const { data } = await productsAPI.getProducts(limit)
+			const { data } = await productsAPI.getProducts(limit, skipProducts)
 			dispatch(setProducts(data.products))
 			dispatch(setTotalProducts(data.total))
 			dispatch(setIsLoading(false))
