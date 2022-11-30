@@ -49,11 +49,11 @@ interface setCategoryName {
 }
 interface setSkipProducts {
 	type: ProductsActionType.SET_SKIP_PRODUCTS
-	payload: string
+	payload: number
 }
 interface setTotalProducts {
 	type: ProductsActionType.SET_TOTAL_PRODUCTS
-	payload: string
+	payload: number
 }
 
 export type ProductsAction =
