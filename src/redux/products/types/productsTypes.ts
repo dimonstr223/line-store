@@ -29,6 +29,7 @@ export enum ProductsActionType {
 	SET_CATEGORY_NAME = 'SET_CATEGORY_NAME',
 	INCREMENT_SKIP_PRODUCTS = 'INCREMENT_SKIP_PRODUCTS',
 	DECREMENT_SKIP_PRODUCTS = 'DECREMENT_SKIP_PRODUCTS',
+	SET_SKIP_PRODUCTS = 'SET_SKIP_PRODUCTS',
 	SET_TOTAL_PRODUCTS = 'SET_TOTAL_PRODUCTS',
 }
 
@@ -54,6 +55,10 @@ interface incrementSkipProducts {
 interface decrementSkipProducts {
 	type: ProductsActionType.DECREMENT_SKIP_PRODUCTS
 }
+interface setSkipProducts {
+	type: ProductsActionType.SET_SKIP_PRODUCTS
+	payload: number
+}
 interface setTotalProducts {
 	type: ProductsActionType.SET_TOTAL_PRODUCTS
 	payload: number
@@ -66,4 +71,5 @@ export type ProductsAction =
 	| setCategoryName
 	| incrementSkipProducts
 	| decrementSkipProducts
+	| setSkipProducts
 	| setTotalProducts

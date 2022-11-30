@@ -28,6 +28,11 @@ export const incrementSkipProducts = (): ProductsAction => ({
 export const decrementSkipProducts = (): ProductsAction => ({
 	type: ProductsActionType.DECREMENT_SKIP_PRODUCTS,
 })
+export const setSkipProducts = (payload: number): ProductsAction => ({
+	type: ProductsActionType.SET_SKIP_PRODUCTS,
+	payload,
+})
+
 const setTotalProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_TOTAL_PRODUCTS,
 	payload,

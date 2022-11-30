@@ -6,7 +6,10 @@ import {
 	decrementSkipProducts,
 	getProducts,
 	incrementSkipProducts,
+	setSkipProducts,
 } from '../redux/products/actions/productsAction'
+import { countPages } from '../utils/countPages'
+import { countToSkip } from '../utils/countToSkip'
 
 const Pagination: React.FC = ({}) => {
 	const { limit, skipProducts, products, totalProducts, isLoading } =
@@ -24,6 +27,12 @@ const Pagination: React.FC = ({}) => {
 		dispatch(decrementSkipProducts())
 	}
 
+	const onClickPage = (item: number) => {
+		dispatch(setSkipProducts(countToSkip(item, limit)))
+	}
+
+	const pages = countPages(totalProducts, limit)
+
 	return (
 		<>
 			<button
@@ -32,6 +41,13 @@ const Pagination: React.FC = ({}) => {
 			>
 				Load prev
 			</button>
+			<ul>
+				{pages.map(item => (
+					<li onClick={() => onClickPage(item)} key={item}>
+						{item}
+					</li>
+				))}
+			</ul>
 			<button
 				onClick={onLoadNextClick}
 				disabled={products.some(item => item.id === totalProducts || isLoading)}
