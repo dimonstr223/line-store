@@ -14,9 +14,8 @@ import style from '../../scss/components/Products.module.scss'
 import Pagination from '../Pagination'
 
 const Products: React.FC = () => {
-	const { products, categoryName, limit, skipProducts } = useAppSelecror(
-		state => state.products
-	)
+	const { products, categoryName, limit, skipProducts, totalProducts } =
+		useAppSelecror(state => state.products)
 	const { isOpened } = useAppSelecror(state => state.categories)
 	const dispatch: any = useDispatch()
 
@@ -51,7 +50,7 @@ const Products: React.FC = () => {
 						<ProductsItem key={item.id} {...item} />
 					))}
 				</div>
-				<Pagination />
+				{totalProducts === 100 && <Pagination />}
 			</div>
 		</>
 	)

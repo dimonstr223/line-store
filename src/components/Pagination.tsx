@@ -3,31 +3,41 @@ import ReactPaginate from 'react-paginate'
 import { useDispatch } from 'react-redux'
 import useAppSelecror from '../hooks/useAppSelector'
 import {
+	decrementSkipProducts,
 	getProducts,
-	setSkipProducts,
+	incrementSkipProducts,
 } from '../redux/products/actions/productsAction'
 
 const Pagination: React.FC = ({}) => {
-	const { limit, skipProducts } = useAppSelecror(state => state.products)
+	const { limit, skipProducts, products, totalProducts, isLoading } =
+		useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
-	const onLoadPrevClick = () => {
-		dispatch(setSkipProducts(skipProducts - limit))
+	React.useEffect(() => {
 		dispatch(getProducts(limit, skipProducts))
-	}
+	}, [skipProducts])
 
 	const onLoadNextClick = () => {
-		dispatch(setSkipProducts(skipProducts + limit))
-		console.log(skipProducts)
-		dispatch(getProducts(limit, skipProducts))
+		dispatch(incrementSkipProducts())
+	}
+	const onLoadPrevClick = () => {
+		dispatch(decrementSkipProducts())
 	}
 
 	return (
 		<>
-			<button onClick={() => onLoadPrevClick()} disabled={skipProducts === 0}>
+			<button
+				onClick={() => onLoadPrevClick()}
+				disabled={skipProducts === 0 || isLoading}
+			>
 				Load prev
 			</button>
-			<button onClick={() => onLoadNextClick()}>Load next</button>
+			<button
+				onClick={onLoadNextClick}
+				disabled={products.some(item => item.id === totalProducts || isLoading)}
+			>
+				Load next
+			</button>
 		</>
 	)
 }

@@ -9,7 +9,7 @@ const initialState: ProductsState = {
 	isLoading: false,
 	error: null,
 	categoryName: '',
-	limit: 8,
+	limit: 12,
 	skipProducts: 0,
 	totalProducts: 0,
 }
