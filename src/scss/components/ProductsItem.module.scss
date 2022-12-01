@@ -21,6 +21,16 @@
 		width: 200px;
 		height: 150px;
 		margin-bottom: 10px;
+		position: relative;
+
+		.discountPercentage {
+			position: absolute;
+			bottom: 5px;
+			left: 5px;
+			padding: 5px;
+			border-radius: 5px;
+			background-color: rgba(160, 8, 8, 0.8);
+		}
 
 		img {
 			width: 100%;
@@ -48,7 +58,18 @@
 		align-items: flex-end;
 
 		.price {
-			font-size: 18px;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			font-size: 16px;
+
+			.prevPrice {
+				text-decoration: line-through;
+				color: $blueAccent;
+			}
+			.discountPrice {
+				font-size: 20px;
+			}
 		}
 
 		.addBtn {
