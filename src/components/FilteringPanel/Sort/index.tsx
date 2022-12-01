@@ -10,7 +10,7 @@ import { Product } from '../../../redux/products/types/productsTypes'
 
 import style from '../../../scss/components/Sort.module.scss'
 
-const sortingParams: sortParam[] = ['rating', 'price']
+const sortingParams: sortParam[] = ['order', 'rating', 'price']
 
 interface SortProps {
 	products: Product[]
@@ -39,11 +39,13 @@ const Sort: React.FC<SortProps> = ({ products }) => {
 			</button>
 			{isPopupOpened && (
 				<ul className={style.popup}>
-					{sortingParams.map(item => (
-						<li className={style.item}>
-							<button onClick={() => onSortClick(item)}>{item}</button>
-						</li>
-					))}
+					{sortingParams
+						.filter(item => item !== sortParam)
+						.map(item => (
+							<li className={style.item}>
+								<button onClick={() => onSortClick(item)}>{item}</button>
+							</li>
+						))}
 				</ul>
 			)}
 		</div>

@@ -9,7 +9,7 @@ const initialState: FilterState = {
 	isLoading: false,
 	error: null,
 	isPopupOpened: false,
-	sortParam: 'rating',
+	sortParam: 'order',
 }
 
 const filterReducer = (

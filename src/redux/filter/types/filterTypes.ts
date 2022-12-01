@@ -1,4 +1,4 @@
-export type sortParam = 'price' | 'rating'
+export type sortParam = 'order' | 'price' | 'rating'
 
 export interface FilterState {
 	searchValue: string
