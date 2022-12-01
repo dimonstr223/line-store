@@ -2,7 +2,6 @@ import React from 'react'
 import './scss/App.scss'
 import Header from './components/Header'
 import Products from './components/Products'
-import Categories from './components/Categories'
 
 const App: React.FC = () => {
 	return (

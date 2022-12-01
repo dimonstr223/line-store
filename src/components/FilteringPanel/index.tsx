@@ -7,8 +7,7 @@ import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 import Search from './Search'
 
 import style from '../../scss/components/FilteringPanel.module.scss'
-
-const sortingParams = [{ title: 'rating' }, { title: 'price' }]
+import Sort from './Sort'
 
 const FilteringPanel: React.FC = () => {
 	const { categoryName } = useAppSelecror(state => state.products)
@@ -27,9 +26,7 @@ const FilteringPanel: React.FC = () => {
 				</h1>
 			</button>
 			<Search />
-			<div className={style.sort}>
-				<b>Sort by :</b> rating
-			</div>
+			<Sort />
 		</div>
 	)
 }

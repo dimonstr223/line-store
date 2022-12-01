@@ -1,0 +1,50 @@
+@import '../libs/vars';
+
+.sort {
+	position: relative;
+
+	button {
+		display: block;
+		width: 100%;
+		color: #fff;
+		border: none;
+		font-size: 18px;
+		background: transparent;
+		padding: 10px;
+		cursor: pointer;
+		text-align: start;
+	}
+
+	.openPopupBtn {
+		b {
+			color: $blueAccent;
+		}
+	}
+
+	.popup {
+		padding: 10px;
+		border-radius: 10px;
+		background: $itemBG;
+		position: absolute;
+		width: 100%;
+
+		.item {
+			display: block;
+			border-radius: 5px;
+			transition: box-shadow 0.2s;
+
+			button {
+				border-radius: 5px;
+				transition: box-shadow 0.2s;
+			}
+
+			&:hover {
+				@extend %shadow;
+
+				button {
+					@extend %shadowInset;
+				}
+			}
+		}
+	}
+}
