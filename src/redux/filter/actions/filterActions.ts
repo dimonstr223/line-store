@@ -5,7 +5,11 @@ import {
 } from './../../products/actions/productsAction'
 import { productsAPI } from './../../../api/api'
 import { Dispatch } from 'redux'
-import { FilterAction, FilterActionType } from './../types/filterTypes'
+import {
+	FilterAction,
+	FilterActionType,
+	sortParam,
+} from './../types/filterTypes'
 
 export const setSearchValue = (payload: string): FilterAction => ({
 	type: FilterActionType.SET_SEARCH_VALUE,
@@ -22,6 +26,11 @@ const setError = (payload: string): FilterAction => ({
 })
 export const setIsPopupOpened = (payload: boolean): FilterAction => ({
 	type: FilterActionType.SET_IS_POPUP_OPENED,
+	payload,
+})
+
+export const setSortParam = (payload: sortParam): FilterAction => ({
+	type: FilterActionType.SET_SORT_PARAM,
 	payload,
 })
 

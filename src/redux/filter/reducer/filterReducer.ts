@@ -9,6 +9,7 @@ const initialState: FilterState = {
 	isLoading: false,
 	error: null,
 	isPopupOpened: false,
+	sortParam: 'rating',
 }
 
 const filterReducer = (
@@ -24,6 +25,8 @@ const filterReducer = (
 			return { ...state, error: action.payload }
 		case FilterActionType.SET_IS_POPUP_OPENED:
 			return { ...state, isPopupOpened: action.payload }
+		case FilterActionType.SET_SORT_PARAM:
+			return { ...state, sortParam: action.payload }
 		default:
 			return state
 	}
