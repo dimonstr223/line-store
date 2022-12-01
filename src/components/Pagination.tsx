@@ -68,7 +68,11 @@ const Pagination: React.FC = ({}) => {
 			<button
 				className={style.button}
 				onClick={onLoadNextClick}
-				disabled={products.some(item => item.id === totalProducts || isLoading)}
+				disabled={
+					products.some(item => item.id === totalProducts) ||
+					products.length < limit ||
+					isLoading
+				}
 			>
 				Load next
 			</button>

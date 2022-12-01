@@ -55,7 +55,8 @@ const Products: React.FC = React.memo(() => {
 					<ProductsItem key={item.id} {...item} />
 				))}
 			</div>
-			{!categoryName && <Pagination />}
+			{/* {!categoryName && <Pagination />} */}
+			<Pagination />
 		</>
 	)
 })
