@@ -33,7 +33,7 @@ export const setSkipProducts = (payload: number): ProductsAction => ({
 	payload,
 })
 
-const setTotalProducts = (payload: number): ProductsAction => ({
+export const setTotalProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_TOTAL_PRODUCTS,
 	payload,
 })

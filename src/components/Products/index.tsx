@@ -15,7 +15,7 @@ import Search from '../Search'
 
 import style from '../../scss/components/Products.module.scss'
 
-const Products: React.FC = () => {
+const Products: React.FC = React.memo(() => {
 	const { products, categoryName, limit, skipProducts, totalProducts } =
 		useAppSelecror(state => state.products)
 	const { categories } = useAppSelecror(state => state.categories)
@@ -45,7 +45,7 @@ const Products: React.FC = () => {
 							: 'All products'}
 					</h1>
 				</button>
-				<Search />
+				<Search limit={limit} skipProducts={skipProducts} />
 				<div className={style.sort}>
 					<b>Sort by :</b> rating
 				</div>
@@ -58,6 +58,6 @@ const Products: React.FC = () => {
 			{!categoryName && <Pagination />}
 		</>
 	)
-}
+})
 
 export default Products

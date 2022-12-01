@@ -1,5 +1,8 @@
 import { ProductsAction } from './../../products/types/productsTypes'
-import { setProducts } from './../../products/actions/productsAction'
+import {
+	setProducts,
+	setTotalProducts,
+} from './../../products/actions/productsAction'
 import { productsAPI } from './../../../api/api'
 import { Dispatch } from 'redux'
 import { FilterAction, FilterActionType } from './../types/filterTypes'
@@ -25,6 +28,7 @@ export const getProudctsFromSearch =
 			dispatch(setIsLoadin(true))
 			const { data } = await productsAPI.getProudctsFromSearch(searchValue)
 			dispatch(setProducts(data.products))
+			dispatch(setTotalProducts(data.total))
 			dispatch(setIsLoadin(false))
 		} catch (error) {
 			dispatch(setError(`Ошибка при загрузке продукто...${error}`))

@@ -10,13 +10,21 @@ import {
 	getProudctsFromSearch,
 	setSearchValue,
 } from '../redux/filter/actions/filterActions'
+import { getProducts } from '../redux/products/actions/productsAction'
 
-const Search: React.FC = () => {
+interface SearchProps {
+	limit: number
+	skipProducts: number
+}
+
+const Search: React.FC<SearchProps> = ({ limit, skipProducts }) => {
 	const { searchValue } = useAppSelecror(state => state.filter)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
-		searchValue && dispatch(getProudctsFromSearch(searchValue))
+		searchValue
+			? dispatch(getProudctsFromSearch(searchValue))
+			: dispatch(getProducts(limit, skipProducts))
 	}, [searchValue])
 
 	const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
