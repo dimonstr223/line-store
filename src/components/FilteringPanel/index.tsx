@@ -10,7 +10,7 @@ import style from '../../scss/components/FilteringPanel.module.scss'
 import Sort from './Sort'
 
 const FilteringPanel: React.FC = () => {
-	const { categoryName } = useAppSelecror(state => state.products)
+	const { categoryName, products } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
 	const onTitleClick = () => {
@@ -26,7 +26,7 @@ const FilteringPanel: React.FC = () => {
 				</h1>
 			</button>
 			<Search />
-			<Sort />
+			<Sort products={products} />
 		</div>
 	)
 }
