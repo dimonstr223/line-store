@@ -9,8 +9,8 @@ import {
 	setCurrentPage,
 	setSkipProducts,
 } from '../redux/products/actions/productsAction'
-import { countPages } from '../utils/countPages'
-import { countToSkip } from '../utils/countToSkip'
+import { calcPages } from '../utils/calcPages'
+import { calcCountToSkip } from '../utils/calcCountToSkip'
 
 import style from '../scss/components/Pagination.module.scss'
 
@@ -39,11 +39,11 @@ const Pagination: React.FC = ({}) => {
 	}
 
 	const onClickPage = (item: number) => {
-		dispatch(setSkipProducts(countToSkip(item, limit)))
+		dispatch(setSkipProducts(calcCountToSkip(item, limit)))
 		dispatch(setCurrentPage(item))
 	}
 
-	const pages = countPages(totalProducts, limit)
+	const pages = calcPages(totalProducts, limit)
 
 	return (
 		<div className={style.pagination}>
