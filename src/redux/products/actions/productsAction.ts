@@ -5,6 +5,7 @@ import {
 	ProductsAction,
 	ProductsActionType,
 } from './../types/productsTypes'
+import { SortParam } from '../../filter/types/filterTypes'
 
 export const setProducts = (payload: Product[]): ProductsAction => ({
 	type: ProductsActionType.SET_PRODUCTS,
@@ -42,8 +43,9 @@ export const setCurrentPage = (payload: number): ProductsAction => ({
 	payload,
 })
 
-export const sortProducts = (): ProductsAction => ({
+export const sortProducts = (payload: SortParam): ProductsAction => ({
 	type: ProductsActionType.SORT_PRODUCTS,
+	payload,
 })
 
 export const getProducts =

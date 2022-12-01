@@ -13,6 +13,7 @@ import { calcPages } from '../utils/calcPages'
 import { calcCountToSkip } from '../utils/calcCountToSkip'
 
 import style from '../scss/components/Pagination.module.scss'
+import { setSortingParam } from '../redux/filter/actions/filterActions'
 
 const Pagination: React.FC = ({}) => {
 	const {
@@ -27,6 +28,7 @@ const Pagination: React.FC = ({}) => {
 
 	React.useEffect(() => {
 		dispatch(getProducts(limit, skipProducts))
+		dispatch(setSortingParam('order'))
 	}, [skipProducts])
 
 	const onLoadNextClick = () => {

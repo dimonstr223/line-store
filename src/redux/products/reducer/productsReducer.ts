@@ -39,9 +39,22 @@ const productsReducer = (
 		case ProductsActionType.SET_CURRENT_PAGE:
 			return { ...state, currentPage: action.payload }
 		case ProductsActionType.SORT_PRODUCTS:
-			return {
-				...state,
-				products: [...state.products].sort((a, b) => a.price - b.price),
+			switch (action.payload) {
+				case 'order':
+					return {
+						...state,
+						products: [...state.products].sort((a, b) => a.id - b.id),
+					}
+				case 'price':
+					return {
+						...state,
+						products: [...state.products].sort((a, b) => a.price - b.price),
+					}
+				case 'rating':
+					return {
+						...state,
+						products: [...state.products].sort((a, b) => a.rating - b.rating),
+					}
 			}
 		default:
 			return state

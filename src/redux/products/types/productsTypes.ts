@@ -1,3 +1,5 @@
+import { SortParam } from '../../filter/types/filterTypes'
+
 export interface Product {
 	id: number
 	title: string
@@ -72,6 +74,7 @@ interface setCurrentPage {
 }
 interface sortProducts {
 	type: ProductsActionType.SORT_PRODUCTS
+	payload: SortParam
 }
 
 export type ProductsAction =

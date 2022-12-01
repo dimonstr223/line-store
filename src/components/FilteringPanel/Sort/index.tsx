@@ -6,10 +6,7 @@ import {
 	setSortingParam,
 } from '../../../redux/filter/actions/filterActions'
 import { SortParam } from '../../../redux/filter/types/filterTypes'
-import {
-	setProducts,
-	sortProducts,
-} from '../../../redux/products/actions/productsAction'
+import { sortProducts } from '../../../redux/products/actions/productsAction'
 import { Product } from '../../../redux/products/types/productsTypes'
 
 import style from '../../../scss/components/Sort.module.scss'
@@ -18,16 +15,20 @@ const sortingParams: SortParam[] = ['order', 'rating', 'price']
 
 interface SortProps {
 	products: Product[]
+	isLoading: boolean
 }
 
-const Sort: React.FC<SortProps> = ({ products }) => {
+const Sort: React.FC<SortProps> = ({ products, isLoading }) => {
 	const { isPopupOpened, sortingParam } = useAppSelecror(state => state.filter)
 	const dispatch: any = useDispatch()
+
+	React.useEffect(() => {
+		dispatch(sortProducts(sortingParam))
+	}, [sortingParam])
 
 	const onSortClick = (item: SortParam) => {
 		dispatch(setSortingParam(item))
 		dispatch(setIsPopupOpened(false))
-		dispatch(sortProducts())
 	}
 
 	return (
