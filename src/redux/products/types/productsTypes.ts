@@ -33,6 +33,7 @@ export enum ProductsActionType {
 	SET_SKIP_PRODUCTS = 'SET_SKIP_PRODUCTS',
 	SET_TOTAL_PRODUCTS = 'SET_TOTAL_PRODUCTS',
 	SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
+	SORT_PRODUCTS = 'SORT_PRODUCTS',
 }
 
 interface setProducts {
@@ -69,6 +70,9 @@ interface setCurrentPage {
 	type: ProductsActionType.SET_CURRENT_PAGE
 	payload: number
 }
+interface sortProducts {
+	type: ProductsActionType.SORT_PRODUCTS
+}
 
 export type ProductsAction =
 	| setProducts
@@ -80,3 +84,4 @@ export type ProductsAction =
 	| setSkipProducts
 	| setTotalProducts
 	| setCurrentPage
+	| sortProducts

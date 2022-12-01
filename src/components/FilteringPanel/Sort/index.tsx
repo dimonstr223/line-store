@@ -3,29 +3,31 @@ import { useDispatch } from 'react-redux'
 import useAppSelecror from '../../../hooks/useAppSelector'
 import {
 	setIsPopupOpened,
-	setSortParam,
+	setSortingParam,
 } from '../../../redux/filter/actions/filterActions'
-import { sortParam } from '../../../redux/filter/types/filterTypes'
+import { SortParam } from '../../../redux/filter/types/filterTypes'
+import {
+	setProducts,
+	sortProducts,
+} from '../../../redux/products/actions/productsAction'
 import { Product } from '../../../redux/products/types/productsTypes'
 
 import style from '../../../scss/components/Sort.module.scss'
 
-const sortingParams: sortParam[] = ['order', 'rating', 'price']
+const sortingParams: SortParam[] = ['order', 'rating', 'price']
 
 interface SortProps {
 	products: Product[]
 }
 
 const Sort: React.FC<SortProps> = ({ products }) => {
-	const { isPopupOpened, sortParam } = useAppSelecror(state => state.filter)
+	const { isPopupOpened, sortingParam } = useAppSelecror(state => state.filter)
 	const dispatch: any = useDispatch()
 
-	const sortProducts = (products: Product[]) =>
-		products.sort((a, b) => a.rating - b.rating)
-
-	const onSortClick = (item: sortParam) => {
-		dispatch(setSortParam(item))
+	const onSortClick = (item: SortParam) => {
+		dispatch(setSortingParam(item))
 		dispatch(setIsPopupOpened(false))
+		dispatch(sortProducts())
 	}
 
 	return (
@@ -35,14 +37,14 @@ const Sort: React.FC<SortProps> = ({ products }) => {
 			className={style.sort}
 		>
 			<button className={style.openPopupBtn}>
-				<b>Sort by :</b> {sortParam}
+				<b>Sort by :</b> {sortingParam}
 			</button>
 			{isPopupOpened && (
 				<ul className={style.popup}>
 					{sortingParams
-						.filter(item => item !== sortParam)
+						.filter(item => item !== sortingParam)
 						.map(item => (
-							<li className={style.item}>
+							<li key={item} className={style.item}>
 								<button onClick={() => onSortClick(item)}>{item}</button>
 							</li>
 						))}

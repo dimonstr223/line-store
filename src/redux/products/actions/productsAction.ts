@@ -42,6 +42,10 @@ export const setCurrentPage = (payload: number): ProductsAction => ({
 	payload,
 })
 
+export const sortProducts = (): ProductsAction => ({
+	type: ProductsActionType.SORT_PRODUCTS,
+})
+
 export const getProducts =
 	(limit: number, skipProducts: number) =>
 	async (dispatch: Dispatch<ProductsAction>) => {

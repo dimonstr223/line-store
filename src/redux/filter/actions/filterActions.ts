@@ -1,4 +1,4 @@
-import { ProductsAction } from './../../products/types/productsTypes'
+import { Product, ProductsAction } from './../../products/types/productsTypes'
 import {
 	setProducts,
 	setTotalProducts,
@@ -8,7 +8,7 @@ import { Dispatch } from 'redux'
 import {
 	FilterAction,
 	FilterActionType,
-	sortParam,
+	SortParam,
 } from './../types/filterTypes'
 
 export const setSearchValue = (payload: string): FilterAction => ({
@@ -29,8 +29,10 @@ export const setIsPopupOpened = (payload: boolean): FilterAction => ({
 	payload,
 })
 
-export const setSortParam = (payload: sortParam): FilterAction => ({
-	type: FilterActionType.SET_SORT_PARAM,
+export const setSortingParam = (
+	payload: SortParam
+): FilterAction | ProductsAction => ({
+	type: FilterActionType.SET_SORTING_PARAM,
 	payload,
 })
 

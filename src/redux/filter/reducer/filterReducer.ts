@@ -1,3 +1,4 @@
+import { Product } from './../../products/types/productsTypes'
 import {
 	FilterState,
 	FilterAction,
@@ -9,13 +10,13 @@ const initialState: FilterState = {
 	isLoading: false,
 	error: null,
 	isPopupOpened: false,
-	sortParam: 'order',
+	sortingParam: 'order',
 }
 
 const filterReducer = (
 	state = initialState,
 	action: FilterAction
-): FilterState => {
+): FilterState | Product[] => {
 	switch (action.type) {
 		case FilterActionType.SET_SEARCH_VALUE:
 			return { ...state, searchValue: action.payload }
@@ -25,8 +26,8 @@ const filterReducer = (
 			return { ...state, error: action.payload }
 		case FilterActionType.SET_IS_POPUP_OPENED:
 			return { ...state, isPopupOpened: action.payload }
-		case FilterActionType.SET_SORT_PARAM:
-			return { ...state, sortParam: action.payload }
+		case FilterActionType.SET_SORTING_PARAM:
+			return { ...state, sortingParam: action.payload }
 		default:
 			return state
 	}

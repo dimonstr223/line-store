@@ -38,6 +38,11 @@ const productsReducer = (
 			return { ...state, totalProducts: action.payload }
 		case ProductsActionType.SET_CURRENT_PAGE:
 			return { ...state, currentPage: action.payload }
+		case ProductsActionType.SORT_PRODUCTS:
+			return {
+				...state,
+				products: [...state.products].sort((a, b) => a.price - b.price),
+			}
 		default:
 			return state
 	}

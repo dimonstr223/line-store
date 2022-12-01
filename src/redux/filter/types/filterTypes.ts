@@ -1,11 +1,11 @@
-export type sortParam = 'order' | 'price' | 'rating'
+export type SortParam = 'order' | 'price' | 'rating'
 
 export interface FilterState {
 	searchValue: string
 	isLoading: boolean
 	error: string | null
 	isPopupOpened: boolean
-	sortParam: sortParam
+	sortingParam: SortParam
 }
 
 export enum FilterActionType {
@@ -13,7 +13,8 @@ export enum FilterActionType {
 	SET_IS_LOADING = 'SET_IS_LOADING',
 	SET_ERROR = 'SET_ERROR',
 	SET_IS_POPUP_OPENED = 'SET_IS_POPUP_OPENED',
-	SET_SORT_PARAM = 'SET_SORT_PARAM',
+	SET_SORTING_PARAM = 'SET_SORT_PARAM',
+	SORT_PRODUCTS = 'SORT_PRODUCTS',
 }
 
 interface setSearchValue {
@@ -32,9 +33,9 @@ interface setIsPopupOpened {
 	type: FilterActionType.SET_IS_POPUP_OPENED
 	payload: boolean
 }
-interface setSortParam {
-	type: FilterActionType.SET_SORT_PARAM
-	payload: sortParam
+interface setSortingParam {
+	type: FilterActionType.SET_SORTING_PARAM
+	payload: SortParam
 }
 
 export type FilterAction =
@@ -42,4 +43,4 @@ export type FilterAction =
 	| setIsLoadin
 	| setError
 	| setIsPopupOpened
-	| setSortParam
+	| setSortingParam
