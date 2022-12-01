@@ -1,16 +1,17 @@
 import React from 'react'
 
-import searchIcon from '../assets/images/search-icon.svg'
-import closeIcon from '../assets/images/close-icon.svg'
+import searchIcon from '../../../assets/images/search-icon.svg'
+import closeIcon from '../../../assets/images/close-icon.svg'
 
-import style from '../scss/components/Search.module.scss'
-import useAppSelecror from '../hooks/useAppSelector'
+import useAppSelecror from '../../../hooks/useAppSelector'
 import { useDispatch } from 'react-redux'
 import {
 	getProudctsFromSearch,
 	setSearchValue,
-} from '../redux/filter/actions/filterActions'
-import { getProducts } from '../redux/products/actions/productsAction'
+} from '../../../redux/filter/actions/filterActions'
+import { getProducts } from '../../../redux/products/actions/productsAction'
+
+import style from '../../../scss/components/Search.module.scss'
 
 const Search: React.FC = () => {
 	const { searchValue } = useAppSelecror(state => state.filter)

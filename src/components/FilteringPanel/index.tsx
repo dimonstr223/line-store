@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import useAppSelecror from '../hooks/useAppSelector'
-import { setIsOpened } from '../redux/categories/actions/categoriesAction'
+import useAppSelecror from '../../hooks/useAppSelector'
+import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 
 import Search from './Search'
 
-import style from '../scss/components/SortingPanel.module.scss'
+import style from '../../scss/components/FilteringPanel.module.scss'
 
 const sortingParams = [{ title: 'rating' }, { title: 'price' }]
 
