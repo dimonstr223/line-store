@@ -6,19 +6,18 @@ import {
 	getProducts,
 	getProductsOfCategory,
 } from '../../redux/products/actions/productsAction'
-import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 
 import ProductsItem from './ProductsItem'
 import Categories from '../Categories'
 import Pagination from '../Pagination'
-import Search from '../Search'
+import FilteringPanel from '../FilteringPanel'
 
 import style from '../../scss/components/Products.module.scss'
 
 const Products: React.FC = React.memo(() => {
-	const { products, categoryName, limit, skipProducts, totalProducts } =
-		useAppSelecror(state => state.products)
-	const { categories } = useAppSelecror(state => state.categories)
+	const { products, categoryName, limit, skipProducts } = useAppSelecror(
+		state => state.products
+	)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
@@ -29,27 +28,11 @@ const Products: React.FC = React.memo(() => {
 		}
 	}, [categoryName])
 
-	const onTitleClick = () => {
-		dispatch(setIsOpened(true))
-	}
-
 	return (
 		<>
 			{/* {isOpened && <Categories />} */}
 			<Categories />
-			<div className={style.sortingPanel}>
-				<button onClick={() => onTitleClick()} className={style.categoryBtn}>
-					<h1>
-						{categoryName
-							? categoryName[0].toUpperCase().concat(categoryName.slice(1))
-							: 'All products'}
-					</h1>
-				</button>
-				<Search limit={limit} skipProducts={skipProducts} />
-				<div className={style.sort}>
-					<b>Sort by :</b> rating
-				</div>
-			</div>
+			<FilteringPanel />
 			<div className={style.products}>
 				{products.map(item => (
 					<ProductsItem key={item.id} {...item} />

@@ -1,0 +1,17 @@
+.filteringPanel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 30px;
+
+	.categoryBtn {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+
+		h1 {
+			font-size: 30px;
+			margin-left: 60px;
+		}
+	}
+}

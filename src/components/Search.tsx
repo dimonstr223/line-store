@@ -12,13 +12,9 @@ import {
 } from '../redux/filter/actions/filterActions'
 import { getProducts } from '../redux/products/actions/productsAction'
 
-interface SearchProps {
-	limit: number
-	skipProducts: number
-}
-
-const Search: React.FC<SearchProps> = ({ limit, skipProducts }) => {
+const Search: React.FC = () => {
 	const { searchValue } = useAppSelecror(state => state.filter)
+	const { limit, skipProducts } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
