@@ -8,6 +8,7 @@ const initialState: FilterState = {
 	searchValue: '',
 	isLoading: false,
 	error: null,
+	isPopupOpened: false,
 }
 
 const filterReducer = (
@@ -21,6 +22,8 @@ const filterReducer = (
 			return { ...state, isLoading: action.payload }
 		case FilterActionType.SET_ERROR:
 			return { ...state, error: action.payload }
+		case FilterActionType.SET_IS_POPUP_OPENED:
+			return { ...state, isPopupOpened: action.payload }
 		default:
 			return state
 	}

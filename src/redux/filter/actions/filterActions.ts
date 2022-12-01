@@ -20,6 +20,10 @@ const setError = (payload: string): FilterAction => ({
 	type: FilterActionType.SET_ERROR,
 	payload,
 })
+export const setIsPopupOpened = (payload: boolean): FilterAction => ({
+	type: FilterActionType.SET_IS_POPUP_OPENED,
+	payload,
+})
 
 export const getProudctsFromSearch =
 	(searchValue: string) =>
