@@ -1,7 +1,7 @@
 import React from 'react'
 import style from '../../scss/components/Cart.module.scss'
 
-const Cart = () => {
+const Cart: React.FC = () => {
 	return (
 		<div className={style.cart}>
 			<h1 className={style.cart__title}>Cart</h1>
