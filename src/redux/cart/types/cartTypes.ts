@@ -14,7 +14,7 @@ export enum CartActionTypes {
 }
 interface addToCart {
 	type: CartActionTypes.ADD_TO_CART
-	payload: CartItem
+	payload: CartItem[]
 }
 
 export type CartAction = addToCart
