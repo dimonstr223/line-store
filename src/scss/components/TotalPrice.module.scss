@@ -1,0 +1,36 @@
+@import '../libs/vars';
+
+.totalPrice {
+	min-width: 300px;
+	border-radius: 10px;
+	background: $itemBG;
+	padding: 20px;
+	font-size: 18px;
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin-bottom: 40px;
+
+		.item {
+			display: flex;
+			justify-content: space-between;
+
+			h5,
+			div {
+				opacity: 0.5;
+			}
+
+			.title,
+			.total {
+				opacity: 1;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.order__button {
+		@extend %button;
+	}
+}

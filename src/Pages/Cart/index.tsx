@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CartItem from '../../components/CartItem'
+import TotalPrice from '../../components/TotalPrice'
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/Cart.module.scss'
@@ -16,7 +17,7 @@ const Cart: React.FC = () => {
 						<CartItem key={item.id} {...item} />
 					))}
 				</div>
-				<div className={style.cart__total}>Total</div>
+				<TotalPrice />
 			</div>
 		</div>
 	)
