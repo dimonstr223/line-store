@@ -1,10 +1,10 @@
 import React from 'react'
-import { Product } from '../../../redux/products/types/productsTypes'
+import { Product } from '../../redux/products/types/productsTypes'
 
-import addToCartIcon from '../../../assets/images/add-to-cart-icon.svg'
-import calcDiscountPrice from '../../../utils/calcDiscountPrice'
+import addToCartIcon from '../../assets/images/add-to-cart-icon.svg'
+import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
-import style from '../../../scss/components/ProductsItem.module.scss'
+import style from '../../scss/components/ProductsItem.module.scss'
 
 const ProductsItem: React.FC<Product> = ({
 	thumbnail,

@@ -7,10 +7,10 @@ import {
 	getProductsOfCategory,
 } from '../../redux/products/actions/productsAction'
 
-import ProductsItem from './ProductsItem'
-import Categories from '../Categories'
-import Pagination from '../Pagination'
-import FilteringPanel from '../FilteringPanel'
+import ProductsItem from '../../components/ProductsItem'
+import Categories from '../../components/Categories'
+import Pagination from '../../components/Pagination'
+import FilteringPanel from '../../components/FilteringPanel'
 
 import style from '../../scss/components/Products.module.scss'
 
