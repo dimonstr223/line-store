@@ -6,7 +6,7 @@ import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
 import style from '../../scss/components/ProductsItem.module.scss'
 import { useDispatch } from 'react-redux'
-import { addToCart, setTotalPrice } from '../../redux/cart/actions/cartActions'
+import { addToCart } from '../../redux/cart/actions/cartActions'
 
 const ProductsItem: React.FC<Product> = ({
 	id,

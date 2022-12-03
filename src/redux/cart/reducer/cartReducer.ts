@@ -5,6 +5,7 @@ const initialState: CartState = {
 	cartItems: [],
 	totalPrice: 0,
 	totalDiscountPrice: 0,
+	discount: 0,
 }
 
 const cartReducer = (state = initialState, action: CartAction): CartState => {
@@ -31,6 +32,11 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 					},
 					0
 				),
+			}
+		case CartActionTypes.SET_DISCOUNT:
+			return {
+				...state,
+				discount: state.totalPrice - state.totalDiscountPrice,
 			}
 		default:
 			return state

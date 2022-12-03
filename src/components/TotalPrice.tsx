@@ -1,22 +1,17 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import useAppSelecror from '../hooks/useAppSelector'
-import {
-	setTotalDiscountPrice,
-	setTotalPrice,
-} from '../redux/cart/actions/cartActions'
+import { setTotalInfo } from '../redux/cart/actions/cartActions'
 
 import style from '../scss/components/TotalPrice.module.scss'
 
 const TotalPrice: React.FC = () => {
-	const { cartItems, totalPrice, totalDiscountPrice } = useAppSelecror(
-		state => state.cart
-	)
+	const { cartItems, totalPrice, totalDiscountPrice, discount } =
+		useAppSelecror(state => state.cart)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
-		dispatch(setTotalPrice())
-		dispatch(setTotalDiscountPrice())
+		dispatch(setTotalInfo())
 	}, [cartItems])
 	return (
 		<div className={style.totalPrice}>
@@ -31,7 +26,7 @@ const TotalPrice: React.FC = () => {
 				</li>
 				<li className={style.item}>
 					<h5>Discount:</h5>
-					<div>1000$</div>
+					<div>{discount}$</div>
 				</li>
 			</ul>
 			<button className={style.order__button}> Place an order</button>
