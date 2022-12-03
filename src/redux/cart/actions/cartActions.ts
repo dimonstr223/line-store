@@ -7,3 +7,6 @@ export const addToCart = (payload: ICartItem): CartAction => ({
 export const setTotalPrice = (): CartAction => ({
 	type: CartActionTypes.SET_TOTAL_PRICE,
 })
+export const setTotalDiscountPrice = (): CartAction => ({
+	type: CartActionTypes.SET_TOTAL_DISCOUNT_PRICE,
+})

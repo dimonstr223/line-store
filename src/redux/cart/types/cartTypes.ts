@@ -10,10 +10,12 @@ export interface ICartItem {
 export interface CartState {
 	cartItems: ICartItem[]
 	totalPrice: number
+	totalDiscountPrice: number
 }
 export enum CartActionTypes {
 	ADD_TO_CART = 'ADD_TO_CART',
 	SET_TOTAL_PRICE = 'SET_TOTAL_PRICE',
+	SET_TOTAL_DISCOUNT_PRICE = 'SET_TOTAL_DISCOUNT_PRICE',
 }
 interface addToCart {
 	type: CartActionTypes.ADD_TO_CART
@@ -22,5 +24,8 @@ interface addToCart {
 interface setTotalPrice {
 	type: CartActionTypes.SET_TOTAL_PRICE
 }
+interface setTotalDiscountPrice {
+	type: CartActionTypes.SET_TOTAL_DISCOUNT_PRICE
+}
 
-export type CartAction = addToCart | setTotalPrice
+export type CartAction = addToCart | setTotalPrice | setTotalDiscountPrice
