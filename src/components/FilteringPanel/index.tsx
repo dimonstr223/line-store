@@ -5,9 +5,9 @@ import useAppSelecror from '../../hooks/useAppSelector'
 import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
 
 import Search from './Search'
+import Sort from './Sort'
 
 import style from '../../scss/components/FilteringPanel.module.scss'
-import Sort from './Sort'
 
 const FilteringPanel: React.FC = () => {
 	const { categoryName, products, isLoading } = useAppSelecror(
