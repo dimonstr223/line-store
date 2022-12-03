@@ -4,3 +4,6 @@ export const addToCart = (payload: ICartItem): CartAction => ({
 	type: CartActionTypes.ADD_TO_CART,
 	payload,
 })
+export const setTotalPrice = (): CartAction => ({
+	type: CartActionTypes.SET_TOTAL_PRICE,
+})

@@ -2,6 +2,7 @@ import React from 'react'
 import { ICartItem } from '../redux/cart/types/cartTypes'
 
 import style from '../scss/components/CartItem.module.scss'
+import calcDiscountPrice from '../utils/calcDiscountPrice'
 
 const CartItem: React.FC<ICartItem> = ({
 	title,
@@ -22,7 +23,9 @@ const CartItem: React.FC<ICartItem> = ({
 			<div className={style.wrapper}>
 				<div className={style.quantity}>quantity</div>
 				<div className={style.price}>
-					<div className={style.discountPrice}>11111$</div>
+					<div className={style.discountPrice}>
+						{calcDiscountPrice(price, discountPercentage)}$
+					</div>
 					<div className={style.prevPrice}>{price} $</div>
 				</div>
 			</div>
