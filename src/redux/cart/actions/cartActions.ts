@@ -1,6 +1,6 @@
-import { CartItem, CartAction, CartActionTypes } from './../types/cartTypes'
+import { ICartItem, CartAction, CartActionTypes } from './../types/cartTypes'
 
-export const addToCart = (payload: CartItem): CartAction => ({
+export const addToCart = (payload: ICartItem): CartAction => ({
 	type: CartActionTypes.ADD_TO_CART,
 	payload,
 })

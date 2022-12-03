@@ -1,3 +1,45 @@
+@import '../libs/vars';
+
 .cart__item {
-	display: block;
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+
+	padding: 20px;
+	background: $itemBG;
+	border-radius: 10px;
+
+	.img__wrapper {
+		width: 80px;
+		height: 80px;
+		object-fit: cover;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.about {
+		flex: 1;
+	}
+
+	.wrapper {
+		display: flex;
+		gap: 60px;
+
+		.quantity {
+			align-self: center;
+		}
+
+		.price {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			.prevPrice {
+				color: $blueAccent;
+				text-decoration: line-through;
+			}
+		}
+	}
 }

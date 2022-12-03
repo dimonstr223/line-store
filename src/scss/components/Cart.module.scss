@@ -1,10 +1,31 @@
+@import '../libs/vars';
+
 .cart {
 	&__title {
 		font-size: 30px;
 		margin-left: 60px;
 		padding-top: 35px;
 	}
-	&__items {
-		font-size: 18px;
+
+	.items__wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 40px;
+		padding: 30px 10px;
+
+		.cart__items {
+			width: 100%;
+			font-size: 18px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		.cart__total {
+			min-width: 300px;
+			height: 200px;
+			border-radius: 10px;
+			background: $itemBG;
+			padding: 20px;
+		}
 	}
 }

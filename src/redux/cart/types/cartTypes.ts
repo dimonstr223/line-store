@@ -1,4 +1,4 @@
-export interface CartItem {
+export interface ICartItem {
 	id: number
 	title: string
 	price: number
@@ -8,14 +8,14 @@ export interface CartItem {
 }
 
 export interface CartState {
-	cartItems: CartItem[]
+	cartItems: ICartItem[]
 }
 export enum CartActionTypes {
 	ADD_TO_CART = 'ADD_TO_CART',
 }
 interface addToCart {
 	type: CartActionTypes.ADD_TO_CART
-	payload: CartItem
+	payload: ICartItem
 }
 
 export type CartAction = addToCart
