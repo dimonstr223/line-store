@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import style from '../scss/components/BackToProductsButton.module.scss'
 
-const BackToProductsButton = () => {
+const BackToProductsButton: React.FC = () => {
 	return (
 		<>
 			<Link to='/'>

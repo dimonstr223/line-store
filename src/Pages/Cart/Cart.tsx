@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import BackToProductsButton from '../../components/BackToProductsButton'
 
 import CartItem from '../../components/CartItem/CartItem'
