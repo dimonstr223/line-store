@@ -22,6 +22,14 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 				cartItems: state.cartItems.filter(item => item.id !== action.payload),
 			}
 
+		case CartActionTypes.INCREMENT_QUANTITY:
+			return {
+				...state,
+				//@ts-ignore
+				cartItems: state.cartItems.find(item => item.id === action.payload)
+					?.quantity++,
+			}
+
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,

@@ -33,7 +33,7 @@ const CartItem: React.FC<ICartItem> = ({
 				<div>{brand}</div>
 			</div>
 			<div className={style.wrapper}>
-				{quantity && <Quantity quantity={quantity} />}
+				{quantity && <Quantity id={id} quantity={quantity} />}
 				<div className={style.price}>
 					<div className={style.discountPrice}>
 						{calcDiscountPrice(price, discountPercentage)}$

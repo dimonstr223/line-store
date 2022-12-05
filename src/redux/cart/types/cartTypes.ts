@@ -17,6 +17,8 @@ export interface CartState {
 export enum CartActionTypes {
 	ADD_TO_CART = 'ADD_TO_CART',
 	REMOVE_FROM_CART = 'REMOVE_FROM_CART',
+	INCREMENT_QUANTITY = 'INCREMENT_QUANTITY',
+	DECREMENT_QUANTITY = 'DECREMENT_QUANTITY',
 	SET_TOTAL_PRICE = 'SET_TOTAL_PRICE',
 	SET_TOTAL_DISCOUNT_PRICE = 'SET_TOTAL_DISCOUNT_PRICE',
 	SET_DISCOUNT = 'SET_DISCOUNT',
@@ -38,10 +40,20 @@ interface setTotalDiscountPrice {
 interface setDiscount {
 	type: CartActionTypes.SET_DISCOUNT
 }
+interface incrementQuantity {
+	type: CartActionTypes.INCREMENT_QUANTITY
+	payload: number
+}
+interface decrementQuantity {
+	type: CartActionTypes.DECREMENT_QUANTITY
+	payload: number
+}
 
 export type CartAction =
 	| addToCart
 	| removeFromCart
+	| incrementQuantity
+	| decrementQuantity
 	| setTotalPrice
 	| setTotalDiscountPrice
 	| setDiscount

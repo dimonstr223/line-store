@@ -18,6 +18,10 @@ const setTotalDiscountPrice = (): CartAction => ({
 const setDiscount = (): CartAction => ({
 	type: CartActionTypes.SET_DISCOUNT,
 })
+export const incrementQuantity = (payload: number): CartAction => ({
+	type: CartActionTypes.INCREMENT_QUANTITY,
+	payload,
+})
 
 export const setTotalInfo = () => (dispatch: Dispatch<CartAction>) => {
 	dispatch(setTotalPrice())
