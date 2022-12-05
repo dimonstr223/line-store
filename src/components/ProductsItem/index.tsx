@@ -6,7 +6,7 @@ import cartAddedIcon from '../../assets/images/cart-added-icon.svg'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
 import { useDispatch } from 'react-redux'
-import { addToCart } from '../../redux/cart/actions/cartActions'
+import { addToCart, removeFromCart } from '../../redux/cart/actions/cartActions'
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/ProductsItem.module.scss'
@@ -34,6 +34,9 @@ const ProductsItem: React.FC<Product> = ({
 			addToCart({ id, thumbnail, title, brand, price, discountPercentage })
 		)
 	}
+	const onRemoveFromCart = (id: number) => {
+		dispatch(removeFromCart(id))
+	}
 
 	return (
 		<div className={style.productItem}>
@@ -53,7 +56,10 @@ const ProductsItem: React.FC<Product> = ({
 					</div>
 				</div>
 				{cartItems.some(item => item.id === id) ? (
-					<button className={style.removeBtn}>
+					<button
+						onClick={() => onRemoveFromCart(id)}
+						className={style.removeBtn}
+					>
 						<img src={cartAddedIcon} alt='Remove' width={35} />
 					</button>
 				) : (
