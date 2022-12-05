@@ -24,6 +24,7 @@ export enum CartActionTypes {
 	SET_TOTAL_DISCOUNT_PRICE = 'SET_TOTAL_DISCOUNT_PRICE',
 	SET_DISCOUNT = 'SET_DISCOUNT',
 	SET_TOTAL_QUANTITY = 'SET_TOTAL_QUANTITY',
+	CLEAR_CART = 'CLEAR_CART',
 }
 interface addToCart {
 	type: CartActionTypes.ADD_TO_CART
@@ -53,6 +54,9 @@ interface decreaseQuantity {
 interface setTotalQuantity {
 	type: CartActionTypes.SET_TOTAL_QUANTITY
 }
+interface clearCart {
+	type: CartActionTypes.CLEAR_CART
+}
 
 export type CartAction =
 	| addToCart
@@ -63,3 +67,4 @@ export type CartAction =
 	| setTotalDiscountPrice
 	| setDiscount
 	| setTotalQuantity
+	| clearCart
