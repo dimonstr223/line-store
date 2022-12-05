@@ -30,13 +30,33 @@
 		.price {
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			// gap: 5px;
 			min-width: 70px;
 			text-align: right;
+
+			.discountPrice {
+				font-size: 20px;
+			}
 
 			.prevPrice {
 				color: $blueAccent;
 				text-decoration: line-through;
+				margin-bottom: 15px;
+			}
+
+			.removeBtn {
+				border: none;
+				background-color: transparent;
+				color: rgba($redAccent, 0.8);
+				font-size: 18px;
+				text-align-last: right;
+				align-self: flex-end;
+				cursor: pointer;
+				transition: color 0.2s;
+
+				&:hover {
+					color: $redAccent;
+				}
 			}
 		}
 	}

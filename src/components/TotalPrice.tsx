@@ -22,11 +22,11 @@ const TotalPrice: React.FC = () => {
 				</li>
 				<li className={style.item}>
 					<h5>Qty: {totalQuantity}</h5>
-					<div>{totalPrice}$</div>
+					<div>{totalPrice} $</div>
 				</li>
 				<li className={style.item}>
 					<h5>Discount:</h5>
-					<div>{discount}$</div>
+					<div>{discount} $</div>
 				</li>
 			</ul>
 			<button className={style.order__button}> Place an order</button>
