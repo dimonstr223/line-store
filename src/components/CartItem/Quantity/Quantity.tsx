@@ -1,6 +1,9 @@
 import React from 'react'
 import { useAppDispatch } from '../../../hooks/useAppDispatch'
-import { increaseQuantity } from '../../../redux/cart/actions/cartActions'
+import {
+	decreaseQuantity,
+	increaseQuantity,
+} from '../../../redux/cart/actions/cartActions'
 
 import style from '../../../scss/components/Quantity.module.scss'
 
@@ -12,14 +15,19 @@ interface QuantityProps {
 const Quantity: React.FC<QuantityProps> = ({ id, quantity }) => {
 	const dispatch = useAppDispatch()
 
-	const onIncrement = (id: number) => {
+	const onIncrease = (id: number) => {
 		dispatch(increaseQuantity(id))
+	}
+	const onDecrease = (id: number) => {
+		dispatch(decreaseQuantity(id))
 	}
 	return (
 		<div className={style.quantity}>
-			<button className={style.decrBtn}>-</button>
+			<button onClick={() => onDecrease(id)} className={style.decrBtn}>
+				-
+			</button>
 			<input className={style.input} type='number' value={quantity} />
-			<button onClick={() => onIncrement(id)} className={style.incrBtn}>
+			<button onClick={() => onIncrease(id)} className={style.incrBtn}>
 				+
 			</button>
 		</div>

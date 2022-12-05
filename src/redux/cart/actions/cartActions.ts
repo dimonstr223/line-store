@@ -22,6 +22,10 @@ export const increaseQuantity = (payload: number): CartAction => ({
 	type: CartActionTypes.INCREASE_QUANTITY,
 	payload,
 })
+export const decreaseQuantity = (payload: number): CartAction => ({
+	type: CartActionTypes.DECREASE_QUANTITY,
+	payload,
+})
 
 export const setTotalInfo = () => (dispatch: Dispatch<CartAction>) => {
 	dispatch(setTotalPrice())

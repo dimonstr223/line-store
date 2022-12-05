@@ -60,7 +60,7 @@ const ProductsItem: React.FC<Product> = ({
 				<div className={style.price}>
 					<div className={style.prevPrice}>{price.toLocaleString()} $</div>
 					<div className={style.discountPrice}>
-						{calcDiscountPrice(price, discountPercentage)} $
+						{calcDiscountPrice(price, discountPercentage, 1)} $
 					</div>
 				</div>
 				{cartItems.some(item => item.id === id) ? (

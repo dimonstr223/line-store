@@ -36,9 +36,9 @@ const CartItem: React.FC<ICartItem> = ({
 				{quantity && <Quantity id={id} quantity={quantity} />}
 				<div className={style.price}>
 					<div className={style.discountPrice}>
-						{calcDiscountPrice(price, discountPercentage)}$
+						{calcDiscountPrice(price, discountPercentage, quantity)}$
 					</div>
-					<div className={style.prevPrice}>{price} $</div>
+					<div className={style.prevPrice}>{price * quantity} $</div>
 
 					<button
 						onClick={() => onRemoveFromCart(id)}

@@ -22,13 +22,34 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 				cartItems: state.cartItems.filter(item => item.id !== action.payload),
 			}
 
-		case CartActionTypes.INCREASE_QUANTITY:
-			const stateCopy: CartState = JSON.parse(JSON.stringify(state))
-			const findItem = stateCopy.cartItems.findIndex(
+		case CartActionTypes.INCREASE_QUANTITY: {
+			const stateCopy = {
+				...state,
+				cartItems: state.cartItems.map(item => ({
+					...item,
+				})),
+			}
+			const findItemIndex = stateCopy.cartItems.findIndex(
 				item => item.id === action.payload
 			)
-			stateCopy.cartItems[findItem].quantity++
+			stateCopy.cartItems[findItemIndex].quantity++
 			return stateCopy
+		}
+
+		case CartActionTypes.DECREASE_QUANTITY: {
+			const stateCopy = {
+				...state,
+				cartItems: state.cartItems.map(item => ({
+					...item,
+				})),
+			}
+			const findItemIndex = stateCopy.cartItems.findIndex(
+				item => item.id === action.payload
+			)
+			stateCopy.cartItems[findItemIndex].quantity--
+			return stateCopy
+		}
+
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,
