@@ -1,6 +1,14 @@
+@import '../libs/vars';
 .quantity {
 	align-self: center;
 
+	button {
+		@extend %button;
+		font-weight: bold;
+		width: 30px;
+		height: 30px;
+		line-height: 0.5;
+	}
 	.input {
 		width: 30px;
 		background-color: transparent;
@@ -9,14 +17,15 @@
 		text-align: center;
 		font-size: 18px;
 	}
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
 
-/* Firefox */
-input[type='number'] {
-	-moz-appearance: textfield;
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	input[type='number'] {
+		-moz-appearance: textfield;
+	}
 }
