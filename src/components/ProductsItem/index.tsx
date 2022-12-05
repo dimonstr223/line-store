@@ -2,11 +2,13 @@ import React from 'react'
 import { Product } from '../../redux/products/types/productsTypes'
 
 import addToCartIcon from '../../assets/images/add-to-cart-icon.svg'
+import cartAddedIcon from '../../assets/images/cart-added-icon.svg'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
 import style from '../../scss/components/ProductsItem.module.scss'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cart/actions/cartActions'
+import useAppSelecror from '../../hooks/useAppSelector'
 
 const ProductsItem: React.FC<Product> = ({
 	id,
@@ -16,7 +18,8 @@ const ProductsItem: React.FC<Product> = ({
 	price,
 	discountPercentage,
 }) => {
-	const dispatch: any = useDispatch()
+	const { cartItems } = useAppSelecror(state => state.cart)
+	const dispatch = useDispatch()
 
 	const onAddToCart = (
 		id: number,
@@ -48,14 +51,27 @@ const ProductsItem: React.FC<Product> = ({
 						{calcDiscountPrice(price, discountPercentage)} $
 					</div>
 				</div>
-				<button
-					onClick={() =>
-						onAddToCart(id, thumbnail, title, brand, price, discountPercentage)
-					}
-					className={style.addBtn}
-				>
-					<img src={addToCartIcon} alt='Add to cart' width={35} />
-				</button>
+				{cartItems.some(item => item.id === id) ? (
+					<button className={style.addBtn}>
+						<img src={cartAddedIcon} alt='Delete' width={35} />
+					</button>
+				) : (
+					<button
+						onClick={() =>
+							onAddToCart(
+								id,
+								thumbnail,
+								title,
+								brand,
+								price,
+								discountPercentage
+							)
+						}
+						className={style.addBtn}
+					>
+						<img src={addToCartIcon} alt='Add to cart' width={35} />
+					</button>
+				)}
 			</div>
 		</div>
 	)

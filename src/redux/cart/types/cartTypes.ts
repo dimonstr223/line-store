@@ -5,6 +5,7 @@ export interface ICartItem {
 	discountPercentage: number
 	brand: string
 	thumbnail: string
+	quantity?: number
 }
 
 export interface CartState {

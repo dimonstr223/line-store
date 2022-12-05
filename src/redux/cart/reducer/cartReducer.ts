@@ -11,7 +11,11 @@ const initialState: CartState = {
 const cartReducer = (state = initialState, action: CartAction): CartState => {
 	switch (action.type) {
 		case CartActionTypes.ADD_TO_CART:
-			return { ...state, cartItems: [...state.cartItems, action.payload] }
+			return {
+				...state,
+				cartItems: [{ ...action.payload, quantity: 1 }, ...state.cartItems],
+			}
+
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,

@@ -10,6 +10,7 @@ const CartItem: React.FC<ICartItem> = ({
 	brand,
 	price,
 	discountPercentage,
+	quantity,
 }) => {
 	return (
 		<div className={style.cart__item}>
@@ -21,7 +22,7 @@ const CartItem: React.FC<ICartItem> = ({
 				<div>{brand}</div>
 			</div>
 			<div className={style.wrapper}>
-				<div className={style.quantity}>quantity</div>
+				<div className={style.quantity}>{quantity}</div>
 				<div className={style.price}>
 					<div className={style.discountPrice}>
 						{calcDiscountPrice(price, discountPercentage)}$
