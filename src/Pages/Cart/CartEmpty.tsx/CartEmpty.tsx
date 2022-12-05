@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import emptyCartImage from '../../../assets/images/empty-cart.svg'
 
@@ -17,7 +18,9 @@ const CartEmpty: React.FC = () => {
 					/>
 				</div>
 				<h3 className={style.cartEmpty__title}>Cart is empty :(</h3>
-				<button className={style.cartEmpty__button}>Back to products</button>
+				<Link to='/'>
+					<button className={style.cartEmpty__button}>Back to products</button>
+				</Link>
 			</div>
 		</div>
 	)
