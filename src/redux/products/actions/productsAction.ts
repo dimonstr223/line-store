@@ -1,3 +1,4 @@
+import { setIsOpened } from './../../categories/actions/categoriesAction'
 import { productsAPI } from './../../../api/api'
 import { Dispatch } from 'redux'
 import {

@@ -16,7 +16,6 @@ import style from '../scss/components/Categories.module.scss'
 
 const Categories: React.FC = () => {
 	const { categories, isOpened } = useAppSelecror(state => state.categories)
-	const { limit, skipProducts } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
@@ -32,13 +31,10 @@ const Categories: React.FC = () => {
 	}
 	const onAllProductsClick = () => {
 		dispatch(setCategoryName(''))
-		dispatch(getProducts(limit, skipProducts))
+		dispatch(setIsOpened(false))
 	}
 	return (
-		<div
-			onClick={() => dispatch(setIsOpened(false))}
-			className={isOpened ? style.overlay : style.overlayClosed}
-		>
+		<div className={isOpened ? style.overlay : style.overlayClosed}>
 			<div className={style.drawer}>
 				<div className={style.top__wrapper}>
 					<h3 className={style.title}>Categories</h3>
