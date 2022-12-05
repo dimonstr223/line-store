@@ -1,0 +1,16 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+import style from '../scss/components/BackToProductsButton.module.scss'
+
+const BackToProductsButton = () => {
+	return (
+		<>
+			<Link to='/'>
+				<button className={style.cartEmpty__button}>Back to products</button>
+			</Link>
+		</>
+	)
+}
+
+export default BackToProductsButton
