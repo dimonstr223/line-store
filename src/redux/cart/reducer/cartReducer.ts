@@ -6,6 +6,7 @@ const initialState: CartState = {
 	totalPrice: 0,
 	totalDiscountPrice: 0,
 	discount: 0,
+	totalQuantity: 0,
 }
 
 const cartReducer = (state = initialState, action: CartAction): CartState => {
@@ -47,7 +48,6 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 			stateCopy.cartItems[findItemIndex].quantity--
 			return stateCopy
 		}
-
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,
@@ -73,6 +73,14 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 			return {
 				...state,
 				discount: state.totalPrice - state.totalDiscountPrice,
+			}
+		case CartActionTypes.SET_TOTAL_QUANTITY:
+			return {
+				...state,
+				totalQuantity: state.cartItems.reduce(
+					(acc, item) => acc + item.quantity,
+					0
+				),
 			}
 		default:
 			return state

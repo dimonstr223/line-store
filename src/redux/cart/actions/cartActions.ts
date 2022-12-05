@@ -26,9 +26,13 @@ export const decreaseQuantity = (payload: number): CartAction => ({
 	type: CartActionTypes.DECREASE_QUANTITY,
 	payload,
 })
+const setTotalQuantity = (): CartAction => ({
+	type: CartActionTypes.SET_TOTAL_QUANTITY,
+})
 
 export const setTotalInfo = () => (dispatch: Dispatch<CartAction>) => {
 	dispatch(setTotalPrice())
 	dispatch(setTotalDiscountPrice())
 	dispatch(setDiscount())
+	dispatch(setTotalQuantity())
 }
