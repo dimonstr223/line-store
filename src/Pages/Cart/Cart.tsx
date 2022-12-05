@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BackToProductsButton from '../../components/BackToProductsButton'
 
 import CartItem from '../../components/CartItem/CartItem'
 import TotalPrice from '../../components/TotalPrice'
@@ -16,11 +17,7 @@ const Cart: React.FC = () => {
 				<>
 					<div className={style.cart__top}>
 						<h1 className={style.cart__title}>Cart</h1>
-						<Link to='/'>
-							<button className={style.backToProducts__button}>
-								Back to products
-							</button>
-						</Link>
+						<BackToProductsButton />
 					</div>
 					<div className={style.items__wrapper}>
 						<div className={style.cart__items}>
