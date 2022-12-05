@@ -54,8 +54,11 @@ const ProductsItem: React.FC<Product> = ({
 				</div>
 				<img src={thumbnail} alt='Product' />
 			</div>
+
 			<h3 className={style.title}>{title}</h3>
+
 			<div className={style.brand}>{brand}</div>
+
 			<div className={style.wrapper}>
 				<div className={style.price}>
 					<div className={style.prevPrice}>{price.toLocaleString()} $</div>

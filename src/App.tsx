@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header'
-import Cart from './Pages/Cart'
+import Cart from './Pages/Cart/Cart'
 import Products from './Pages/Products'
 
 import './scss/App.scss'
