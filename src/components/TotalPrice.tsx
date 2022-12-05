@@ -6,7 +6,7 @@ import { setTotalInfo } from '../redux/cart/actions/cartActions'
 import style from '../scss/components/TotalPrice.module.scss'
 
 const TotalPrice: React.FC = () => {
-	const { cartItems, totalPrice, totalDiscountPrice, discount } =
+	const { cartItems, totalPrice, totalDiscountPrice, discount, totalQuantity } =
 		useAppSelecror(state => state.cart)
 	const dispatch: any = useDispatch()
 
@@ -21,7 +21,7 @@ const TotalPrice: React.FC = () => {
 					<div className={style.total}>{totalDiscountPrice} $</div>
 				</li>
 				<li className={style.item}>
-					<h5>Qty: 1</h5>
+					<h5>Qty: {totalQuantity}</h5>
 					<div>{totalPrice}$</div>
 				</li>
 				<li className={style.item}>
