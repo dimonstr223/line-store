@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CartItem from '../../components/CartItem'
+import CartItem from '../../components/CartItem/CartItem'
 import TotalPrice from '../../components/TotalPrice'
 import useAppSelecror from '../../hooks/useAppSelector'
 

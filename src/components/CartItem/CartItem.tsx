@@ -1,10 +1,12 @@
 import React from 'react'
-import { useAppDispatch } from '../hooks/useAppDispatch'
-import { removeFromCart } from '../redux/cart/actions/cartActions'
-import { ICartItem } from '../redux/cart/types/cartTypes'
 
-import style from '../scss/components/CartItem.module.scss'
-import calcDiscountPrice from '../utils/calcDiscountPrice'
+import { useAppDispatch } from '../../hooks/useAppDispatch'
+import { removeFromCart } from '../../redux/cart/actions/cartActions'
+import { ICartItem } from '../../redux/cart/types/cartTypes'
+
+import calcDiscountPrice from '../../utils/calcDiscountPrice'
+import style from '../../scss/components/CartItem.module.scss'
+import Quantity from './Quantity/Quantity'
 
 const CartItem: React.FC<ICartItem> = ({
 	id,
@@ -30,7 +32,7 @@ const CartItem: React.FC<ICartItem> = ({
 				<div>{brand}</div>
 			</div>
 			<div className={style.wrapper}>
-				<div className={style.quantity}>{quantity}</div>
+				{quantity && <Quantity quantity={quantity} />}
 				<div className={style.price}>
 					<div className={style.discountPrice}>
 						{calcDiscountPrice(price, discountPercentage)}$
