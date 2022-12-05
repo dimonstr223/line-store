@@ -30,8 +30,12 @@
 			}
 		}
 	}
-
-	.order__button {
-		@extend %button;
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		.order__button,
+		.clearCart__button {
+			@extend %button;
+		}
 	}
 }

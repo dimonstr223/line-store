@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import useAppSelecror from '../hooks/useAppSelector'
-import { setTotalInfo } from '../redux/cart/actions/cartActions'
+import { clearCart, setTotalInfo } from '../redux/cart/actions/cartActions'
 
 import style from '../scss/components/TotalPrice.module.scss'
 
@@ -13,6 +13,10 @@ const TotalPrice: React.FC = () => {
 	React.useEffect(() => {
 		dispatch(setTotalInfo())
 	}, [cartItems])
+
+	const onClearCart = () => {
+		if (window.confirm('Clear cart?')) dispatch(clearCart())
+	}
 	return (
 		<div className={style.totalPrice}>
 			<ul className={style.totalPrice__list}>
@@ -29,7 +33,16 @@ const TotalPrice: React.FC = () => {
 					<div>{discount} $</div>
 				</li>
 			</ul>
-			<button className={style.order__button}> Place an order</button>
+			<div className={style.buttons}>
+				<button className={style.order__button}> Place an order</button>
+				<button
+					onClick={onClearCart}
+					disabled={cartItems.length === 0}
+					className={style.clearCart__button}
+				>
+					Clear
+				</button>
+			</div>
 		</div>
 	)
 }
