@@ -1,10 +1,21 @@
 @import '../libs/vars';
 
 .cart {
-	&__title {
-		font-size: 30px;
-		margin-left: 60px;
+	.cart__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		padding-top: 35px;
+
+		.cart__title {
+			font-size: 30px;
+			margin-left: 60px;
+		}
+
+		.backToProducts__button {
+			@extend %button;
+			height: 100%;
+		}
 	}
 
 	.items__wrapper {

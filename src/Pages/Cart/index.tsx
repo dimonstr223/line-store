@@ -10,7 +10,12 @@ const Cart: React.FC = () => {
 	const { cartItems } = useAppSelecror(state => state.cart)
 	return (
 		<div className={style.cart}>
-			<h1 className={style.cart__title}>Cart</h1>
+			<div className={style.cart__top}>
+				<h1 className={style.cart__title}>Cart</h1>
+				<button className={style.backToProducts__button}>
+					Back to products
+				</button>
+			</div>
 			<div className={style.items__wrapper}>
 				<div className={style.cart__items}>
 					{cartItems.map(item => (
