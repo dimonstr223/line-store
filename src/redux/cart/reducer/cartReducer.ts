@@ -16,6 +16,12 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 				cartItems: [{ ...action.payload, quantity: 1 }, ...state.cartItems],
 			}
 
+		case CartActionTypes.REMOVE_FROM_CART:
+			return {
+				...state,
+				cartItems: state.cartItems.filter(item => item.id !== action.payload),
+			}
+
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,

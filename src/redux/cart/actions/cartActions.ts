@@ -5,6 +5,10 @@ export const addToCart = (payload: ICartItem): CartAction => ({
 	type: CartActionTypes.ADD_TO_CART,
 	payload,
 })
+export const removeFromCart = (payload: number): CartAction => ({
+	type: CartActionTypes.REMOVE_FROM_CART,
+	payload,
+})
 const setTotalPrice = (): CartAction => ({
 	type: CartActionTypes.SET_TOTAL_PRICE,
 })
