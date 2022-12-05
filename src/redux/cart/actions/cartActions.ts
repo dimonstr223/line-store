@@ -18,8 +18,8 @@ const setTotalDiscountPrice = (): CartAction => ({
 const setDiscount = (): CartAction => ({
 	type: CartActionTypes.SET_DISCOUNT,
 })
-export const incrementQuantity = (payload: number): CartAction => ({
-	type: CartActionTypes.INCREMENT_QUANTITY,
+export const increaseQuantity = (payload: number): CartAction => ({
+	type: CartActionTypes.INCREASE_QUANTITY,
 	payload,
 })
 

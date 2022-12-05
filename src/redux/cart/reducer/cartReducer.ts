@@ -23,10 +23,12 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 			}
 
 		case CartActionTypes.INCREASE_QUANTITY:
-			return {
-				...state,
-			}
-
+			const stateCopy: CartState = JSON.parse(JSON.stringify(state))
+			const findItem = stateCopy.cartItems.findIndex(
+				item => item.id === action.payload
+			)
+			stateCopy.cartItems[findItem].quantity++
+			return stateCopy
 		case CartActionTypes.SET_TOTAL_PRICE:
 			return {
 				...state,
