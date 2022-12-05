@@ -16,7 +16,7 @@ const CartItem: React.FC<ICartItem> = ({
 	brand,
 	price,
 	discountPercentage,
-	quantity,
+	quantity = 1,
 }) => {
 	const dispatch = useAppDispatch()
 

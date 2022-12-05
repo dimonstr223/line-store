@@ -31,7 +31,15 @@ const ProductsItem: React.FC<Product> = ({
 		discountPercentage: number
 	) => {
 		dispatch(
-			addToCart({ id, thumbnail, title, brand, price, discountPercentage })
+			addToCart({
+				id,
+				thumbnail,
+				title,
+				brand,
+				price,
+				discountPercentage,
+				quantity: 1,
+			})
 		)
 	}
 	const onRemoveFromCart = (id: number) => {

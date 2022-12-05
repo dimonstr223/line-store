@@ -13,7 +13,7 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 		case CartActionTypes.ADD_TO_CART:
 			return {
 				...state,
-				cartItems: [{ ...action.payload, quantity: 1 }, ...state.cartItems],
+				cartItems: [{ ...action.payload }, ...state.cartItems],
 			}
 
 		case CartActionTypes.REMOVE_FROM_CART:
@@ -22,12 +22,9 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 				cartItems: state.cartItems.filter(item => item.id !== action.payload),
 			}
 
-		case CartActionTypes.INCREMENT_QUANTITY:
+		case CartActionTypes.INCREASE_QUANTITY:
 			return {
 				...state,
-				//@ts-ignore
-				cartItems: state.cartItems.find(item => item.id === action.payload)
-					?.quantity++,
 			}
 
 		case CartActionTypes.SET_TOTAL_PRICE:

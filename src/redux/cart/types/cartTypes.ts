@@ -5,7 +5,7 @@ export interface ICartItem {
 	discountPercentage: number
 	brand: string
 	thumbnail: string
-	quantity?: number
+	quantity: number
 }
 
 export interface CartState {
@@ -17,8 +17,8 @@ export interface CartState {
 export enum CartActionTypes {
 	ADD_TO_CART = 'ADD_TO_CART',
 	REMOVE_FROM_CART = 'REMOVE_FROM_CART',
-	INCREMENT_QUANTITY = 'INCREMENT_QUANTITY',
-	DECREMENT_QUANTITY = 'DECREMENT_QUANTITY',
+	INCREASE_QUANTITY = 'INCREASE_QUANTITY',
+	DECREASE_QUANTITY = 'DECREASE_QUANTITY',
 	SET_TOTAL_PRICE = 'SET_TOTAL_PRICE',
 	SET_TOTAL_DISCOUNT_PRICE = 'SET_TOTAL_DISCOUNT_PRICE',
 	SET_DISCOUNT = 'SET_DISCOUNT',
@@ -40,20 +40,20 @@ interface setTotalDiscountPrice {
 interface setDiscount {
 	type: CartActionTypes.SET_DISCOUNT
 }
-interface incrementQuantity {
-	type: CartActionTypes.INCREMENT_QUANTITY
+interface increaseQuantity {
+	type: CartActionTypes.INCREASE_QUANTITY
 	payload: number
 }
-interface decrementQuantity {
-	type: CartActionTypes.DECREMENT_QUANTITY
+interface decreaseQuantity {
+	type: CartActionTypes.DECREASE_QUANTITY
 	payload: number
 }
 
 export type CartAction =
 	| addToCart
 	| removeFromCart
-	| incrementQuantity
-	| decrementQuantity
+	| increaseQuantity
+	| decreaseQuantity
 	| setTotalPrice
 	| setTotalDiscountPrice
 	| setDiscount
