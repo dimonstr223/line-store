@@ -5,8 +5,9 @@ import { removeFromCart } from '../../redux/cart/actions/cartActions'
 import { ICartItem } from '../../redux/cart/types/cartTypes'
 
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
-import style from '../../scss/components/CartItem.module.scss'
 import Quantity from './Quantity/Quantity'
+
+import style from '../../scss/components/CartItem.module.scss'
 
 const CartItem: React.FC<ICartItem> = ({
 	id,

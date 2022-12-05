@@ -7,7 +7,14 @@ interface QuantityProps {
 }
 
 const Quantity: React.FC<QuantityProps> = ({ quantity }) => {
-	return <div className={style.quantity}>{quantity}</div>
+	return (
+		<div className={style.quantity}>
+			{' '}
+			<button>-</button>
+			<input className={style.input} type='number' value={quantity} />
+			<button>+</button>
+		</div>
+	)
 }
 
 export default Quantity
