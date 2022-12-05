@@ -1,0 +1,18 @@
+@import '../libs/vars';
+
+.cartEmpty__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding-top: 80px;
+
+	.cartEmpty__title {
+		font-size: 30px;
+	}
+
+	.cartEmpty__button {
+		@extend %button;
+	}
+}
