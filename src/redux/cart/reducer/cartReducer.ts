@@ -21,7 +21,6 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 				...state,
 				cartItems: state.cartItems.filter(item => item.id !== action.payload),
 			}
-
 		case CartActionTypes.INCREASE_QUANTITY: {
 			const stateCopy = {
 				...state,
@@ -35,7 +34,6 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 			stateCopy.cartItems[findItemIndex].quantity++
 			return stateCopy
 		}
-
 		case CartActionTypes.DECREASE_QUANTITY: {
 			const stateCopy = {
 				...state,
@@ -54,7 +52,7 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 			return {
 				...state,
 				totalPrice: state.cartItems.reduce(
-					(acc: number, item: ICartItem) => acc + item.price,
+					(acc: number, item: ICartItem) => acc + item.price * item.quantity,
 					0
 				),
 			}
@@ -66,7 +64,7 @@ const cartReducer = (state = initialState, action: CartAction): CartState => {
 						const discountPrice = Math.ceil(
 							item.price - (item.price / 100) * item.discountPercentage
 						)
-						return acc + discountPrice
+						return acc + discountPrice * item.quantity
 					},
 					0
 				),
