@@ -5,10 +5,11 @@ import addToCartIcon from '../../assets/images/add-to-cart-icon.svg'
 import cartAddedIcon from '../../assets/images/cart-added-icon.svg'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
-import style from '../../scss/components/ProductsItem.module.scss'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cart/actions/cartActions'
 import useAppSelecror from '../../hooks/useAppSelector'
+
+import style from '../../scss/components/ProductsItem.module.scss'
 
 const ProductsItem: React.FC<Product> = ({
 	id,
@@ -52,8 +53,8 @@ const ProductsItem: React.FC<Product> = ({
 					</div>
 				</div>
 				{cartItems.some(item => item.id === id) ? (
-					<button className={style.addBtn}>
-						<img src={cartAddedIcon} alt='Delete' width={35} />
+					<button className={style.removeBtn}>
+						<img src={cartAddedIcon} alt='Remove' width={35} />
 					</button>
 				) : (
 					<button
