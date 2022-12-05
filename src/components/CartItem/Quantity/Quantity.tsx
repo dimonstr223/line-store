@@ -23,11 +23,19 @@ const Quantity: React.FC<QuantityProps> = ({ id, quantity }) => {
 	}
 	return (
 		<div className={style.quantity}>
-			<button onClick={() => onDecrease(id)} className={style.decrBtn}>
+			<button
+				disabled={quantity <= 1}
+				onClick={() => onDecrease(id)}
+				className={style.decrBtn}
+			>
 				-
 			</button>
 			<input className={style.input} type='number' value={quantity} />
-			<button onClick={() => onIncrease(id)} className={style.incrBtn}>
+			<button
+				disabled={quantity >= 10}
+				onClick={() => onIncrease(id)}
+				className={style.incrBtn}
+			>
 				+
 			</button>
 		</div>
