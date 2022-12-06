@@ -26,11 +26,6 @@
 			font-size: 30px;
 			padding: 5px;
 			line-height: 30px;
-
-			&:hover {
-				color: $blueAccent;
-				@extend %shadowInset;
-			}
 		}
 	}
 }
