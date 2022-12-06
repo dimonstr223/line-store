@@ -35,7 +35,11 @@ const Categories: React.FC = () => {
 	}
 	return (
 		<div className={isOpened ? style.overlay : style.overlayClosed}>
-			<div className={style.drawer}>
+			<div
+				onMouseLeave={() => dispatch(setIsOpened(false))}
+				onMouseEnter={() => dispatch(setIsOpened(true))}
+				className={style.drawer}
+			>
 				<div className={style.top__wrapper}>
 					<h3 className={style.title}>Categories</h3>
 					<button

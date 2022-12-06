@@ -8,6 +8,7 @@ import calcDiscountPrice from '../../utils/calcDiscountPrice'
 import Quantity from './Quantity/Quantity'
 
 import style from '../../scss/components/CartItem.module.scss'
+import { useDispatch } from 'react-redux'
 
 const CartItem: React.FC<ICartItem> = ({
 	id,
@@ -18,7 +19,7 @@ const CartItem: React.FC<ICartItem> = ({
 	discountPercentage,
 	quantity = 1,
 }) => {
-	const dispatch = useAppDispatch()
+	const dispatch: any = useDispatch()
 
 	const onRemoveFromCart = (id: number) => {
 		dispatch(removeFromCart(id))

@@ -6,7 +6,11 @@ import cartAddedIcon from '../../assets/images/cart-added-icon.svg'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
 import { useDispatch } from 'react-redux'
-import { addToCart, removeFromCart } from '../../redux/cart/actions/cartActions'
+import {
+	addToCart,
+	removeFromCart,
+	setTotalQuantity,
+} from '../../redux/cart/actions/cartActions'
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/ProductsItem.module.scss'
@@ -41,9 +45,11 @@ const ProductsItem: React.FC<Product> = ({
 				quantity: 1,
 			})
 		)
+		dispatch(setTotalQuantity())
 	}
 	const onRemoveFromCart = (id: number) => {
 		dispatch(removeFromCart(id))
+		dispatch(setTotalQuantity())
 	}
 
 	return (

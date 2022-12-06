@@ -1,0 +1,12 @@
+.success {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	padding-top: 80px;
+
+	&__title {
+		font-size: 30px;
+	}
+}

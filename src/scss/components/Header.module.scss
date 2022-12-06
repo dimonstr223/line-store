@@ -20,6 +20,7 @@
 	.header__cart {
 		border-radius: 50%;
 		transition: box-shadow 0.2s;
+		position: relative;
 
 		.cart__wrapper {
 			border-radius: 50%;
@@ -36,5 +37,17 @@
 				box-shadow: 0px 0px 8px 3px rgba(147, 228, 233, 0.2);
 			}
 		}
+	}
+
+	.totalQuantity {
+		position: absolute;
+		right: -5px;
+		top: -5%;
+		background-color: $redAccent;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		font-size: 14px;
 	}
 }

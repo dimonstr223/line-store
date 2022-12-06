@@ -26,7 +26,7 @@ export const decreaseQuantity = (payload: number): CartAction => ({
 	type: CartActionTypes.DECREASE_QUANTITY,
 	payload,
 })
-const setTotalQuantity = (): CartAction => ({
+export const setTotalQuantity = (): CartAction => ({
 	type: CartActionTypes.SET_TOTAL_QUANTITY,
 })
 export const clearCart = (): CartAction => ({

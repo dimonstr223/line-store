@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 import headerLogo from '../assets/images/header-logo.svg'
 import cartIcon from '../assets/images/cart.svg'
 
+import useAppSelecror from '../hooks/useAppSelector'
 import style from '../scss/components/Header.module.scss'
 
 const Header: React.FC = () => {
+	const { totalQuantity } = useAppSelecror(state => state.cart)
+
 	return (
 		<header className={style.header}>
 			<Link to='/'>
@@ -26,6 +29,9 @@ const Header: React.FC = () => {
 					<div className={style.cart__wrapper}>
 						<img src={cartIcon} alt='Cart' width={35} />
 					</div>
+					{totalQuantity > 0 && (
+						<div className={style.totalQuantity}>{totalQuantity}</div>
+					)}
 				</div>
 			</Link>
 		</header>

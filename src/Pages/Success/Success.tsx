@@ -3,6 +3,8 @@ import React from 'react'
 import successImage from '../../assets/images/success.svg'
 import BackToProductsButton from '../../components/BackToProductsButton'
 
+import style from '../../scss/components/Success.module.scss'
+
 const Success = () => {
 	return (
 		<div className={style.success}>
