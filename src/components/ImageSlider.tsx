@@ -36,7 +36,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 					<div
 						onClick={() => onDotClick(index)}
 						key={index}
-						className={style.item}
+						className={index === currentIndex ? style.activeDot : style.item}
 					>
 						<img src={item} alt='image' />
 					</div>
@@ -44,10 +44,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 			</div>
 			<div className={style.sliderWrapper}>
 				<div className={style.leftArrow} onClick={onPrevious}>
-					{'<'}
+					{'〈'}
 				</div>
 				<div className={style.rightArrow} onClick={onNext}>
-					{'>'}
+					{'〉'}
 				</div>
 				<div className={style.slide} style={slideStyle}></div>
 			</div>

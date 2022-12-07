@@ -24,13 +24,11 @@ const FilteringPanel: React.FC = () => {
 				onMouseEnter={() => onTitleHandler()}
 				className={style.categoryBtn}
 			>
-				<div className={style.titleWrapper}>
-					<h1 className={style.categoryTitle}>
-						{categoryName
-							? categoryName[0].toUpperCase().concat(categoryName.slice(1))
-							: 'Categories'}
-					</h1>
-				</div>
+				<h1 className={style.categoryTitle}>
+					{categoryName
+						? categoryName[0].toUpperCase().concat(categoryName.slice(1))
+						: 'Categories'}
+				</h1>
 			</button>
 			<Search />
 			<Sort products={products} isLoading={isLoading} />
