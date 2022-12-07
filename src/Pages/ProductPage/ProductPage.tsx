@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import ImageSlider from '../../components/ImageSlider'
 import useAppSelecror from '../../hooks/useAppSelector'
 import { getSingleProduct } from '../../redux/products/actions/productsAction'
-import { Product } from '../../redux/products/types/productsTypes'
 
 import style from '../../scss/components/ProductPage.module.scss'
 
@@ -22,10 +22,7 @@ const ProductPage: React.FC = () => {
 			</h1>
 			<div className={style.rating}>********({singleProduct?.rating})</div>
 			<div className={style.info}>
-				<div className={style.gallery}>
-					<img src={singleProduct?.images[0]} alt='Product image' />
-					Images Galery Slider
-				</div>
+				<ImageSlider images={singleProduct?.images} />
 				<div className={style.infoPanel}>
 					<div className={style.price}>
 						<div className={style.discountPrice}>{singleProduct?.price}</div>
