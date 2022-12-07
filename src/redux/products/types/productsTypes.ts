@@ -16,6 +16,7 @@ export interface Product {
 
 export interface ProductsState {
 	products: Product[]
+	singleProduct: Product | null
 	isLoading: boolean
 	error: null | string
 	categoryName: string
@@ -27,6 +28,7 @@ export interface ProductsState {
 
 export enum ProductsActionType {
 	SET_PRODUCTS = 'SET_PRODUCTS',
+	SET_SINGLE_PRODUCTS = 'SET_SINGLE_PRODUCTS',
 	SET_IS_LOADING = 'SET_IS_LOADING',
 	SET_ERROR = 'SET_ERROR',
 	SET_CATEGORY_NAME = 'SET_CATEGORY_NAME',
@@ -41,6 +43,10 @@ export enum ProductsActionType {
 interface setProducts {
 	type: ProductsActionType.SET_PRODUCTS
 	payload: Product[]
+}
+interface setSingleProducts {
+	type: ProductsActionType.SET_SINGLE_PRODUCTS
+	payload: Product
 }
 interface setIsLoading {
 	type: ProductsActionType.SET_IS_LOADING
@@ -79,6 +85,7 @@ interface sortProducts {
 
 export type ProductsAction =
 	| setProducts
+	| setSingleProducts
 	| setIsLoading
 	| setError
 	| setCategoryName

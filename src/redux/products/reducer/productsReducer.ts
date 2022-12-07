@@ -6,6 +6,7 @@ import {
 
 const initialState: ProductsState = {
 	products: [],
+	singleProduct: null,
 	isLoading: false,
 	error: null,
 	categoryName: '',
@@ -22,6 +23,8 @@ const productsReducer = (
 	switch (action.type) {
 		case ProductsActionType.SET_PRODUCTS:
 			return { ...state, products: action.payload }
+		case ProductsActionType.SET_SINGLE_PRODUCTS:
+			return { ...state, singleProduct: action.payload }
 		case ProductsActionType.SET_ERROR:
 			return { ...state, error: action.payload }
 		case ProductsActionType.SET_IS_LOADING:
