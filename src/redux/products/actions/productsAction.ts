@@ -48,6 +48,10 @@ export const sortProducts = (payload: SortParam): ProductsAction => ({
 	type: ProductsActionType.SORT_PRODUCTS,
 	payload,
 })
+const setSingleProducts = (payload: Product): ProductsAction => ({
+	type: ProductsActionType.SET_SINGLE_PRODUCTS,
+	payload,
+})
 
 export const getProducts =
 	(limit: number, skipProducts: number) =>
@@ -73,5 +77,17 @@ export const getProductsOfCategory =
 			dispatch(setIsLoading(false))
 		} catch (error) {
 			dispatch(setError(`Ошибка при загрузке продуктов...${error}`))
+		}
+	}
+
+export const getSingleProduct =
+	(id: number) => async (dispatch: Dispatch<ProductsAction>) => {
+		try {
+			dispatch(setIsLoading(true))
+			const { data } = await productsAPI.getSingleProduct(id)
+			dispatch(setSingleProducts(data))
+			dispatch(setIsLoading(false))
+		} catch (error) {
+			dispatch(setError(`Ошибка при загрузке товара...${error}`))
 		}
 	}
