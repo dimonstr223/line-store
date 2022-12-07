@@ -109,6 +109,7 @@ const ProductPage: React.FC = () => {
 									alt='image'
 									width={150}
 									height={150}
+									style={{ objectFit: 'cover' }}
 								/>
 							</Link>
 						))}
