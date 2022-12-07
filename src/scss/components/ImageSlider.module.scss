@@ -1,3 +1,5 @@
+@import '../libs/vars';
+
 .slider {
 	height: 100%;
 	position: relative;
@@ -8,5 +10,24 @@
 		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
+	}
+
+	.leftArrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $blueAccent;
+		font-size: 100px;
+		left: 10px;
+		cursor: pointer;
+	}
+	.rightArrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $blueAccent;
+		font-size: 100px;
+		right: 10px;
+		cursor: pointer;
 	}
 }
