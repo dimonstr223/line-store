@@ -100,8 +100,8 @@ const ProductPage: React.FC = () => {
 				<h3 className={style.similar__title}>Similar</h3>
 				<ul className={style.similar__products}>
 					{products
-						.slice(0, 5)
 						.filter(item => item.id !== singleProduct?.id)
+						.slice(0, 5)
 						.map(item => (
 							<Link to={`/products/${item.id}`} className={style.similar__item}>
 								<img
