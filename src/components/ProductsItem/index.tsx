@@ -14,6 +14,7 @@ import {
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/ProductsItem.module.scss'
+import { Link, useParams } from 'react-router-dom'
 
 const ProductsItem: React.FC<Product> = ({
 	id,
@@ -53,51 +54,53 @@ const ProductsItem: React.FC<Product> = ({
 	}
 
 	return (
-		<div className={style.productItem}>
-			<div className={style.img__wrapper}>
-				<div className={style.discountPercentage}>
-					-{Math.ceil(discountPercentage)}%
-				</div>
-				<img src={thumbnail} alt='Product' />
-			</div>
-
-			<h3 className={style.title}>{title}</h3>
-
-			<div className={style.brand}>{brand}</div>
-
-			<div className={style.wrapper}>
-				<div className={style.price}>
-					<div className={style.prevPrice}>{price.toLocaleString()} $</div>
-					<div className={style.discountPrice}>
-						{calcDiscountPrice(price, discountPercentage, 1)} $
+		<Link to={`/products/${id}`}>
+			<div className={style.productItem}>
+				<div className={style.img__wrapper}>
+					<div className={style.discountPercentage}>
+						-{Math.ceil(discountPercentage)}%
 					</div>
+					<img src={thumbnail} alt='Product' />
 				</div>
-				{cartItems.some(item => item.id === id) ? (
-					<button
-						onClick={() => onRemoveFromCart(id)}
-						className={style.removeBtn}
-					>
-						<img src={cartAddedIcon} alt='Remove' width={35} />
-					</button>
-				) : (
-					<button
-						onClick={() =>
-							onAddToCart(
-								id,
-								thumbnail,
-								title,
-								brand,
-								price,
-								discountPercentage
-							)
-						}
-						className={style.addBtn}
-					>
-						<img src={addToCartIcon} alt='Add to cart' width={35} />
-					</button>
-				)}
+
+				<h3 className={style.title}>{title}</h3>
+
+				<div className={style.brand}>{brand}</div>
+
+				<div className={style.wrapper}>
+					<div className={style.price}>
+						<div className={style.prevPrice}>{price.toLocaleString()} $</div>
+						<div className={style.discountPrice}>
+							{calcDiscountPrice(price, discountPercentage, 1)} $
+						</div>
+					</div>
+					{cartItems.some(item => item.id === id) ? (
+						<button
+							onClick={() => onRemoveFromCart(id)}
+							className={style.removeBtn}
+						>
+							<img src={cartAddedIcon} alt='Remove' width={35} />
+						</button>
+					) : (
+						<button
+							onClick={() =>
+								onAddToCart(
+									id,
+									thumbnail,
+									title,
+									brand,
+									price,
+									discountPercentage
+								)
+							}
+							className={style.addBtn}
+						>
+							<img src={addToCartIcon} alt='Add to cart' width={35} />
+						</button>
+					)}
+				</div>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

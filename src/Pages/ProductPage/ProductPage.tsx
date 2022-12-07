@@ -1,27 +1,42 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import useAppSelecror from '../../hooks/useAppSelector'
+import { getSingleProduct } from '../../redux/products/actions/productsAction'
+import { Product } from '../../redux/products/types/productsTypes'
 
 import style from '../../scss/components/ProductPage.module.scss'
 
 const ProductPage: React.FC = () => {
+	const { singleProduct } = useAppSelecror(state => state.products)
+	const dispatch: any = useDispatch()
+	const { id } = useParams()
+	React.useEffect(() => {
+		id && dispatch(getSingleProduct(id))
+	}, [id])
+
 	return (
 		<div className={style.productPage}>
-			<h1 className={style.title}>Brand / Title</h1>
-			<div className={style.rating}>********(rating)</div>
+			<h1 className={style.title}>
+				{singleProduct?.brand} / {singleProduct?.title}
+			</h1>
+			<div className={style.rating}>********({singleProduct?.rating})</div>
 			<div className={style.info}>
-				<div className={style.gallery}>Images Galery Slider</div>
+				<div className={style.gallery}>
+					<img src={singleProduct?.images[0]} alt='Product image' />
+					Images Galery Slider
+				</div>
 				<div className={style.infoPanel}>
 					<div className={style.price}>
-						<div className={style.discountPrice}>price</div>
+						<div className={style.discountPrice}>{singleProduct?.price}</div>
 						<div className={style.prevPrice}>prevPrice</div>
 					</div>
 					<button className={style.addToCartBtn}>Add to cart</button>
-					<div className={style.stock}>Stock: 94</div>
+					<div className={style.stock}>Stock: {singleProduct?.stock}</div>
 				</div>
 			</div>
 			<h3 className={style.description__title}>Description</h3>
-			<p className={style.description__text}>
-				Description text about the product
-			</p>
+			<p className={style.description__text}>{singleProduct?.description}</p>
 			<h3 className={style.similar__title}>Similar</h3>
 			<ul className={style.similar__products}>
 				<li className={style.similar__item}>Product</li>

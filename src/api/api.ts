@@ -14,7 +14,7 @@ export const productsAPI = {
 	getProudctsFromSearch(searchValue: string) {
 		return instance.get(`products/search?q=${searchValue}`)
 	},
-	getSingleProduct(id: number) {
+	getSingleProduct(id: string) {
 		return instance.get(`products/${id}`)
 	},
 }

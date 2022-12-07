@@ -81,7 +81,7 @@ export const getProductsOfCategory =
 	}
 
 export const getSingleProduct =
-	(id: number) => async (dispatch: Dispatch<ProductsAction>) => {
+	(id: string) => async (dispatch: Dispatch<ProductsAction>) => {
 		try {
 			dispatch(setIsLoading(true))
 			const { data } = await productsAPI.getSingleProduct(id)
