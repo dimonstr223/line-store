@@ -22,7 +22,9 @@ const ProductPage: React.FC = () => {
 			</h1>
 			<div className={style.rating}>********({singleProduct?.rating})</div>
 			<div className={style.info}>
-				<ImageSlider images={singleProduct?.images} />
+				<div className={style.slider__container}>
+					<ImageSlider images={singleProduct?.images} />
+				</div>
 				<div className={style.infoPanel}>
 					<div className={style.price}>
 						<div className={style.discountPrice}>{singleProduct?.price}</div>
