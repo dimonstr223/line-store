@@ -26,16 +26,24 @@ const ProductPage: React.FC = () => {
 					<ImageSlider images={singleProduct?.images} />
 				</div>
 				<div className={style.infoPanel}>
-					<div className={style.price}>
-						<div className={style.discountPrice}>{singleProduct?.price}</div>
-						<div className={style.prevPrice}>prevPrice</div>
+					<div className={style.mainInfo}>
+						<div className={style.price}>
+							<div className={style.discountPrice}>
+								{singleProduct?.price} $
+							</div>
+							<div className={style.prevPrice}>{singleProduct?.price} $</div>
+						</div>
+						<button className={style.addToCartBtn}>Add to cart</button>
+						<div className={style.stock}>Stock: {singleProduct?.stock}</div>
 					</div>
-					<button className={style.addToCartBtn}>Add to cart</button>
-					<div className={style.stock}>Stock: {singleProduct?.stock}</div>
+					<div className={style.description}>
+						<h3 className={style.description__title}>Description</h3>
+						<p className={style.description__text}>
+							{singleProduct?.description}
+						</p>
+					</div>
 				</div>
 			</div>
-			<h3 className={style.description__title}>Description</h3>
-			<p className={style.description__text}>{singleProduct?.description}</p>
 			<h3 className={style.similar__title}>Similar</h3>
 			<ul className={style.similar__products}>
 				<li className={style.similar__item}>Product</li>
