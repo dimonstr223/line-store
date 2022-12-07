@@ -28,13 +28,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 
 	return (
 		<div className={style.slider}>
-			<div className={style.leftArrow} onClick={onPrevious}>
-				{'<'}
+			<div className={style.sliderDots}>
+				{images?.map((item, index) => (
+					<div className={style.item}>
+						<img src={item} alt='image' />
+					</div>
+				))}
 			</div>
-			<div className={style.rightArrow} onClick={onNext}>
-				{'>'}
+			<div className={style.sliderWrapper}>
+				<div className={style.leftArrow} onClick={onPrevious}>
+					{'<'}
+				</div>
+				<div className={style.rightArrow} onClick={onNext}>
+					{'>'}
+				</div>
+				<div className={style.slide} style={slideStyle}></div>
 			</div>
-			<div className={style.slide} style={slideStyle}></div>
 		</div>
 	)
 }
