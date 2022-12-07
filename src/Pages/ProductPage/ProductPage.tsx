@@ -1,19 +1,46 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { productsAPI } from '../../api/api'
 import ImageSlider from '../../components/ImageSlider'
 import useAppSelecror from '../../hooks/useAppSelector'
-import { getSingleProduct } from '../../redux/products/actions/productsAction'
+import {
+	addToCart,
+	removeFromCart,
+	setTotalInfo,
+} from '../../redux/cart/actions/cartActions'
+import {
+	getProductsOfCategory,
+	getSingleProduct,
+} from '../../redux/products/actions/productsAction'
 
 import style from '../../scss/components/ProductPage.module.scss'
+import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
 const ProductPage: React.FC = () => {
-	const { singleProduct } = useAppSelecror(state => state.products)
+	const { singleProduct, products } = useAppSelecror(state => state.products)
+	const { cartItems } = useAppSelecror(state => state.cart)
 	const dispatch: any = useDispatch()
 	const { id } = useParams()
+
+	React.useEffect(() => {
+		singleProduct && getProductsOfCategory(singleProduct?.category)
+	}, [])
+
 	React.useEffect(() => {
 		id && dispatch(getSingleProduct(id))
 	}, [id])
+
+	React.useEffect(() => {
+		dispatch(setTotalInfo())
+	}, [cartItems])
+
+	const onAddToCart = () => {
+		singleProduct && dispatch(addToCart({ ...singleProduct, quantity: 1 }))
+	}
+	const onRemoveFromCart = () => {
+		singleProduct && dispatch(removeFromCart(singleProduct.id))
+	}
 
 	return (
 		<div className={style.productPage}>
@@ -29,11 +56,28 @@ const ProductPage: React.FC = () => {
 					<div className={style.mainInfo}>
 						<div className={style.price}>
 							<div className={style.discountPrice}>
-								{singleProduct?.price} $
+								{singleProduct &&
+									calcDiscountPrice(
+										singleProduct?.price,
+										singleProduct?.discountPercentage,
+										1
+									)}{' '}
+								$
 							</div>
 							<div className={style.prevPrice}>{singleProduct?.price} $</div>
 						</div>
-						<button className={style.addToCartBtn}>Add to cart</button>
+						{cartItems.some(item => item.id === singleProduct?.id) ? (
+							<button
+								onClick={onRemoveFromCart}
+								className={style.removeFromCartBtn}
+							>
+								Remove from cart
+							</button>
+						) : (
+							<button onClick={onAddToCart} className={style.addToCartBtn}>
+								Add to cart{' '}
+							</button>
+						)}
 						<div className={style.stock}>Stock: {singleProduct?.stock}</div>
 					</div>
 					<div className={style.description}>
@@ -44,10 +88,24 @@ const ProductPage: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<h3 className={style.similar__title}>Similar</h3>
-			<ul className={style.similar__products}>
-				<li className={style.similar__item}>Product</li>
-			</ul>
+			<div className={style.similar}>
+				<h3 className={style.similar__title}>Similar</h3>
+				<ul className={style.similar__products}>
+					{products
+						.slice(0, 5)
+						.filter(item => item.id !== singleProduct?.id)
+						.map(item => (
+							<Link to={`/products/${item.id}`} className={style.similar__item}>
+								<img
+									src={item.thumbnail}
+									alt='image'
+									width={150}
+									height={150}
+								/>
+							</Link>
+						))}
+				</ul>
+			</div>
 		</div>
 	)
 }
