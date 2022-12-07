@@ -6,7 +6,7 @@ import style from '../scss/components/BackToProductsButton.module.scss'
 const BackToProductsButton: React.FC = () => {
 	return (
 		<>
-			<Link to='/'>
+			<Link to='/products'>
 				<button className={style.cartEmpty__button}>Back to products</button>
 			</Link>
 		</>

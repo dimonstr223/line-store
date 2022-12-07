@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
 	return (
 		<header className={style.header}>
-			<Link to='/'>
+			<Link to='/products'>
 				<div className={style.header__logo}>
 					<img
 						className={style.logo__img}
