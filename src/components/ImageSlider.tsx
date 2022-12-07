@@ -26,11 +26,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 		newIndex >= 0 && dispatch(setCurrentIndex(newIndex))
 	}
 
+	const onDotClick = (index: number) => {
+		dispatch(setCurrentIndex(index))
+	}
 	return (
 		<div className={style.slider}>
 			<div className={style.sliderDots}>
 				{images?.map((item, index) => (
-					<div className={style.item}>
+					<div
+						onClick={() => onDotClick(index)}
+						key={index}
+						className={style.item}
+					>
 						<img src={item} alt='image' />
 					</div>
 				))}
