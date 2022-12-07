@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+import { Rating } from 'react-simple-star-rating'
 import { productsAPI } from '../../api/api'
 import ImageSlider from '../../components/ImageSlider'
 import useAppSelecror from '../../hooks/useAppSelector'
@@ -47,7 +48,14 @@ const ProductPage: React.FC = () => {
 			<h1 className={style.title}>
 				{singleProduct?.brand} / {singleProduct?.title}
 			</h1>
-			<div className={style.rating}>********({singleProduct?.rating})</div>
+			<div className={style.rating}>
+				<Rating
+					initialValue={singleProduct?.rating}
+					readonly={true}
+					allowFraction={true}
+					size={30}
+				/>
+			</div>
 			<div className={style.info}>
 				<div className={style.slider__container}>
 					<ImageSlider images={singleProduct?.images} />
