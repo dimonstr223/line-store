@@ -58,7 +58,7 @@ const ProductPage: React.FC = () => {
 			</div>
 			<div className={style.info}>
 				<div className={style.slider__container}>
-					<ImageSlider images={singleProduct?.images} />
+					<ImageSlider images={singleProduct?.images} id={singleProduct?.id} />
 				</div>
 				<div className={style.infoPanel}>
 					<div className={style.mainInfo}>

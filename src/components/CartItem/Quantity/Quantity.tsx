@@ -30,7 +30,7 @@ const Quantity: React.FC<QuantityProps> = ({ id, quantity }) => {
 			>
 				-
 			</button>
-			<input className={style.input} type='number' value={quantity} />
+			<input className={style.input} type='number' value={quantity} readOnly />
 			<button
 				disabled={quantity >= 10}
 				onClick={() => onIncrease(id)}

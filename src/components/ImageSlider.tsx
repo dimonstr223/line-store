@@ -7,10 +7,15 @@ import style from '../scss/components/ImageSlider.module.scss'
 
 interface ImageSliderProps {
 	images: string[] | undefined
+	id: number | undefined
 }
-const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
+const ImageSlider: React.FC<ImageSliderProps> = ({ images, id }) => {
 	const { currentIndex } = useAppSelecror(state => state.imageSlider)
 	const dispatch: any = useDispatch()
+
+	React.useEffect(() => {
+		dispatch(setCurrentIndex(0))
+	}, [id])
 
 	const slideStyle = {
 		backgroundImage: `url(${images && images[currentIndex]})`,
