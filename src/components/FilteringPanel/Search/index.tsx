@@ -18,6 +18,10 @@ const Search: React.FC = () => {
 	const { limit, skipProducts } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
+	React.useEffect(() => {
+		!searchValue && dispatch(getProducts(limit, skipProducts))
+	}, [searchValue])
+
 	const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		dispatch(setSearchValue(event.target.value))
 	}
@@ -29,32 +33,38 @@ const Search: React.FC = () => {
 	}
 	return (
 		<div className={style.search}>
-			<img
-				className={style.search__img}
-				src={searchIcon}
-				alt='Search icon'
-				width={30}
-			/>
-			<input
-				onChange={e => onInputChange(e)}
-				value={searchValue}
-				className={style.search__input}
-				placeholder='Search...'
-			/>
-			{searchValue && (
-				<div
-					onClick={() => dispatch(setSearchValue(''))}
-					className={style.wrapper}
-				>
-					<img
-						className={style.close__img}
-						src={closeIcon}
-						alt='Close'
-						width={20}
-					/>
-				</div>
-			)}
-			<button onClick={onSearchClick} className={style.seartBtn}>
+			<div className={style.search__container}>
+				<img
+					className={style.search__img}
+					src={searchIcon}
+					alt='Search icon'
+					width={30}
+				/>
+				<input
+					onChange={e => onInputChange(e)}
+					value={searchValue}
+					className={style.search__input}
+					placeholder='Search...'
+				/>
+				{searchValue && (
+					<div
+						onClick={() => dispatch(setSearchValue(''))}
+						className={style.wrapper}
+					>
+						<img
+							className={style.close__img}
+							src={closeIcon}
+							alt='Close'
+							width={20}
+						/>
+					</div>
+				)}
+			</div>
+			<button
+				onClick={onSearchClick}
+				disabled={!searchValue}
+				className={style.searchBtn}
+			>
 				Search
 			</button>
 		</div>

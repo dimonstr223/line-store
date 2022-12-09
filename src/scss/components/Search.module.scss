@@ -1,55 +1,65 @@
 @import '../libs/vars';
 
 .search {
-	position: relative;
+	display: flex;
+	gap: 20px;
+	align-items: center;
 	border-radius: 10px;
 	transition: box-shadow 0.3s;
 
-	&__img {
-		position: absolute;
-		top: 8px;
-		left: 10px;
-		opacity: 0.5;
-	}
+	&__container {
+		position: relative;
 
-	.wrapper {
-		position: absolute;
-		font-size: 0;
-		top: 14px;
-		right: 12px;
-		opacity: 0.5;
-		cursor: pointer;
+		.search__img {
+			position: absolute;
+			top: 8px;
+			left: 10px;
+			opacity: 0.5;
+		}
 
-		&:hover {
-			@extend %shadow;
+		.wrapper {
+			position: absolute;
+			font-size: 0;
+			top: 14px;
+			right: 12px;
+			opacity: 0.5;
+			cursor: pointer;
 
-			.close__img {
-				@extend %shadowInset;
+			&:hover {
+				@extend %shadow;
+
+				.close__img {
+					@extend %shadowInset;
+				}
+			}
+		}
+
+		.search__input {
+			padding: 13px 40px 13px 45px;
+			background: $itemBG;
+			font-size: 18px;
+			width: 400px;
+			border-radius: 10px;
+			border: 10px;
+			color: #fff;
+			transition: box-shadow 0.2s;
+
+			&:hover {
+				@extend %shadow;
+			}
+
+			&:focus {
+				@extend %shadow;
+			}
+
+			&::placeholder {
+				color: $blueAccent;
+				opacity: 0.5;
 			}
 		}
 	}
 
-	&__input {
-		padding: 13px 40px 13px 45px;
-		background: $itemBG;
-		font-size: 18px;
-		width: 400px;
-		border-radius: 10px;
-		border: 10px;
-		color: #fff;
-		transition: box-shadow 0.2s;
-
-		&:hover {
-			@extend %shadow;
-		}
-
-		&:focus {
-			@extend %shadow;
-		}
-
-		&::placeholder {
-			color: $blueAccent;
-			opacity: 0.5;
-		}
+	&Btn {
+		@extend %button;
 	}
 }
