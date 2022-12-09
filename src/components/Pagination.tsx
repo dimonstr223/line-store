@@ -3,33 +3,26 @@ import { useDispatch } from 'react-redux'
 
 import useAppSelecror from '../hooks/useAppSelector'
 import {
-	decrementSkipProducts,
 	getProducts,
-	incrementSkipProducts,
 	setCurrentPage,
 	setSkipProducts,
 } from '../redux/products/actions/productsAction'
 import { calcPages } from '../utils/calcPages'
 import { calcCountToSkip } from '../utils/calcCountToSkip'
 
-import style from '../scss/components/Pagination.module.scss'
 import { setSortingParam } from '../redux/filter/actions/filterActions'
 import ReactPaginate from 'react-paginate'
+import style from '../scss/components/Pagination.module.scss'
 
 const Pagination: React.FC = () => {
-	const {
-		limit,
-		skipProducts,
-		products,
-		totalProducts,
-		isLoading,
-		currentPage,
-	} = useAppSelecror(state => state.products)
+	const { limit, skipProducts, totalProducts } = useAppSelecror(
+		state => state.products
+	)
 	const dispatch: any = useDispatch()
 
 	React.useEffect(() => {
-		// Fetch items from another resources.
 		dispatch(getProducts(limit, skipProducts))
+		dispatch(setSortingParam('order'))
 	}, [skipProducts])
 
 	const handlePageClick = (event: any) => {
@@ -41,23 +34,20 @@ const Pagination: React.FC = () => {
 
 	return (
 		<ReactPaginate
-			nextLabel='next >'
+			nextLabel='>'
 			onPageChange={handlePageClick}
-			pageRangeDisplayed={3}
-			marginPagesDisplayed={0}
+			pageRangeDisplayed={2}
+			marginPagesDisplayed={1}
 			pageCount={pages.length}
-			previousLabel='< previous'
-			pageClassName='page-item'
-			pageLinkClassName='page-link'
-			previousClassName='page-item'
-			previousLinkClassName='page-link'
-			nextClassName='page-item'
-			nextLinkClassName='page-link'
-			breakLabel='...'
-			breakClassName='page-item'
-			breakLinkClassName='page-link'
-			containerClassName='pagination'
-			activeClassName='active'
+			previousLabel='<'
+			containerClassName={style.pagination}
+			pageClassName={style.page}
+			activeClassName={style.active}
+			pageLinkClassName={style.page_link}
+			activeLinkClassName={style.active_link}
+			previousLinkClassName={style.button}
+			nextLinkClassName={style.button}
+			breakLabel=''
 		/>
 	)
 }

@@ -24,12 +24,6 @@ export const setCategoryName = (payload: string): ProductsAction => ({
 	type: ProductsActionType.SET_CATEGORY_NAME,
 	payload,
 })
-export const incrementSkipProducts = (): ProductsAction => ({
-	type: ProductsActionType.INCREMENT_SKIP_PRODUCTS,
-})
-export const decrementSkipProducts = (): ProductsAction => ({
-	type: ProductsActionType.DECREMENT_SKIP_PRODUCTS,
-})
 export const setSkipProducts = (payload: number): ProductsAction => ({
 	type: ProductsActionType.SET_SKIP_PRODUCTS,
 	payload,

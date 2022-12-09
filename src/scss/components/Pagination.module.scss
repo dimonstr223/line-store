@@ -14,43 +14,30 @@
 		}
 	}
 
-	.pagesList {
-		display: flex;
-		gap: 10px;
+	.page,
+	.active {
+		border-radius: 5px;
+		cursor: pointer;
+		transition: box-shadow 0.2s;
 
-		.page,
-		.active {
-			border-radius: 5px;
-			text-align: center;
-			transition: box-shadow 0.2s;
-			cursor: pointer;
-			font-size: 18px;
-
-			.wrapper {
-				border-radius: 5px;
-				padding: 7px;
-				min-width: 40px;
-				transition: box-shadow 0.2s;
-			}
-			&:hover {
-				@extend %shadow;
-				.wrapper {
-					@extend %shadowInset;
-				}
-			}
-			&:active {
-				box-shadow: none;
-				.wrapper {
-					box-shadow: none;
-				}
+		&:hover {
+			@extend %shadow;
+			.page_link {
+				@extend %shadowInset;
 			}
 		}
 
-		.active {
-			@extend %shadow;
-			.wrapper {
-				@extend %shadowInset;
-			}
+		.page_link {
+			transition: box-shadow 0.2s;
+			border-radius: 5px;
+			padding: 10px;
+			display: block;
+		}
+	}
+	.active {
+		@extend %shadow;
+		.active_link {
+			@extend %shadowInset;
 		}
 	}
 }
