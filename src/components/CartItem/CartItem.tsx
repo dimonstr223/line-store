@@ -27,14 +27,16 @@ const CartItem: React.FC<ICartItem> = ({
 	}
 	return (
 		<div className={style.cart__item}>
-			<div className={style.img__wrapper}>
-				<img src={thumbnail} alt='Product img' />
-			</div>
-			<div className={style.about}>
-				<Link to={`/products/${id}`}>
-					<h3 className={style.title}>{title}</h3>
-				</Link>
-				<div>{brand}</div>
+			<div className={style.info}>
+				<div className={style.img__wrapper}>
+					<img src={thumbnail} alt='Product img' />
+				</div>
+				<div className={style.about}>
+					<Link to={`/products/${id}`}>
+						<h3 className={style.title}>{title}</h3>
+					</Link>
+					<div>{brand}</div>
+				</div>
 			</div>
 			<div className={style.wrapper}>
 				{quantity && <Quantity id={id} quantity={quantity} />}

@@ -3,6 +3,16 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
+@media (max-width: 1024px) {
+	.cart {
+		.items__wrapper {
+			flex-direction: column;
+		}
+	}
+	.totalPrice {
+		position: initial;
+	}
+}
 @media (max-width: 890px) {
 	.products {
 		grid-template-columns: repeat(2, 1fr);
@@ -11,6 +21,17 @@
 		display: block;
 		.categoryBtn {
 			margin-bottom: 20px;
+		}
+	}
+	.cart__item {
+		.about {
+			.title {
+				max-width: 250px;
+				width: 100%;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
 		}
 	}
 }
@@ -30,9 +51,31 @@
 			}
 		}
 	}
+	.cart__item {
+		flex-direction: column;
+		.wrapper {
+			justify-content: space-between;
+		}
+	}
 }
 @media (max-width: 590px) {
 	.products {
 		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (max-width: 450px) {
+	.cart__item {
+		.about {
+			.title {
+				max-width: 130px;
+				width: 100%;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+		}
+	}
+	.totalPrice {
+		min-width: 200px;
 	}
 }
