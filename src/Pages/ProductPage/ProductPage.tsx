@@ -103,7 +103,11 @@ const ProductPage: React.FC = () => {
 						.filter(item => item.id !== singleProduct?.id)
 						.slice(0, 5)
 						.map(item => (
-							<Link to={`/products/${item.id}`} className={style.similar__item}>
+							<Link
+								key={item.id}
+								to={`/products/${item.id}`}
+								className={style.similar__item}
+							>
 								<img
 									src={item.thumbnail}
 									alt='image'
