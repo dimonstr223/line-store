@@ -18,14 +18,14 @@ const Search: React.FC = () => {
 	const { limit, skipProducts } = useAppSelecror(state => state.products)
 	const dispatch: any = useDispatch()
 
-	React.useEffect(() => {
+	const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch(setSearchValue(event.target.value))
+	}
+
+	const onSearchClick = () => {
 		searchValue
 			? dispatch(getProudctsFromSearch(searchValue))
 			: dispatch(getProducts(limit, skipProducts))
-	}, [searchValue])
-
-	const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setSearchValue(event.target.value))
 	}
 	return (
 		<div className={style.search}>
@@ -54,6 +54,9 @@ const Search: React.FC = () => {
 					/>
 				</div>
 			)}
+			<button onClick={onSearchClick} className={style.seartBtn}>
+				Search
+			</button>
 		</div>
 	)
 }
