@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
-import { productsAPI } from '../../api/api'
 import ImageSlider from '../../components/ImageSlider'
 import useAppSelecror from '../../hooks/useAppSelector'
 import {
@@ -15,8 +14,8 @@ import {
 	getSingleProduct,
 } from '../../redux/products/actions/productsAction'
 
-import style from '../../scss/components/ProductPage.module.scss'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
+import style from '../../scss/components/ProductPage.module.scss'
 
 const ProductPage: React.FC = () => {
 	const { singleProduct, products } = useAppSelecror(state => state.products)
@@ -103,19 +102,20 @@ const ProductPage: React.FC = () => {
 						.filter(item => item.id !== singleProduct?.id)
 						.slice(0, 5)
 						.map(item => (
-							<Link
-								key={item.id}
-								to={`/products/${item.id}`}
-								className={style.similar__item}
-							>
-								<img
-									src={item.thumbnail}
-									alt='image'
-									width={150}
-									height={150}
-									style={{ objectFit: 'cover' }}
-								/>
-							</Link>
+							<li key={item.id}>
+								<Link
+									to={`/products/${item.id}`}
+									className={style.similar__item}
+								>
+									<img
+										src={item.thumbnail}
+										alt='image'
+										width={150}
+										height={150}
+										style={{ objectFit: 'cover' }}
+									/>
+								</Link>
+							</li>
 						))}
 				</ul>
 			</div>

@@ -1,6 +1,7 @@
 @import '../libs/vars';
 .quantity {
 	align-self: center;
+	min-width: 90px;
 
 	button {
 		@extend %button;
@@ -29,3 +30,5 @@
 		-moz-appearance: textfield;
 	}
 }
+
+@import '../media.scss';

@@ -3,7 +3,7 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
 	.cart {
 		.items__wrapper {
 			flex-direction: column;
@@ -12,8 +12,26 @@
 	.totalPrice {
 		position: initial;
 	}
+	.productPage {
+		.info {
+			flex-direction: column;
+
+			.infoPanel {
+				flex-direction: row;
+				justify-content: space-between;
+
+				.mainInfo {
+					flex: 1;
+				}
+			}
+
+			.slider__container {
+				width: 100%;
+			}
+		}
+	}
 }
-@media (max-width: 890px) {
+@media (max-width: 900px) {
 	.products {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -21,17 +39,6 @@
 		display: block;
 		.categoryBtn {
 			margin-bottom: 20px;
-		}
-	}
-	.cart__item {
-		.about {
-			.title {
-				max-width: 250px;
-				width: 100%;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-			}
 		}
 	}
 }
@@ -57,8 +64,26 @@
 			justify-content: space-between;
 		}
 	}
+	.productPage {
+		.info {
+			.infoPanel {
+				flex-direction: column;
+
+				.description {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.slider {
+		flex-direction: column-reverse;
+
+		.sliderDots {
+			flex-direction: row;
+		}
+	}
 }
-@media (max-width: 590px) {
+@media (max-width: 610px) {
 	.products {
 		grid-template-columns: repeat(1, 1fr);
 	}
