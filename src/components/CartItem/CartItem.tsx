@@ -9,6 +9,7 @@ import Quantity from './Quantity/Quantity'
 
 import style from '../../scss/components/CartItem.module.scss'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const CartItem: React.FC<ICartItem> = ({
 	id,
@@ -30,7 +31,9 @@ const CartItem: React.FC<ICartItem> = ({
 				<img src={thumbnail} alt='Product img' />
 			</div>
 			<div className={style.about}>
-				<h3 className={style.title}>{title}</h3>
+				<Link to={`/products/${id}`}>
+					<h3 className={style.title}>{title}</h3>
+				</Link>
 				<div>{brand}</div>
 			</div>
 			<div className={style.wrapper}>

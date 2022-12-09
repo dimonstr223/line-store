@@ -14,7 +14,7 @@ import {
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/ProductsItem.module.scss'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ProductsItem: React.FC<Product> = ({
 	id,
