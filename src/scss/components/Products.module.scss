@@ -7,19 +7,4 @@
 	padding: 30px 10px;
 	overflow-y: hidden;
 }
-
-@media (max-width: 1280px) {
-	.products {
-		grid-template-columns: repeat(3, 1fr);
-	}
-}
-@media (max-width: 890px) {
-	.products {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-@media (max-width: 590px) {
-	.products {
-		grid-template-columns: repeat(1, 1fr);
-	}
-}
+@import '../media.scss';

@@ -30,8 +30,10 @@ const FilteringPanel: React.FC = () => {
 						: 'Categories'}
 				</h1>
 			</button>
-			<Search />
-			<Sort products={products} isLoading={isLoading} />
+			<div className={style.wrapper}>
+				<Search />
+				<Sort products={products} isLoading={isLoading} />
+			</div>
 		</div>
 	)
 }
