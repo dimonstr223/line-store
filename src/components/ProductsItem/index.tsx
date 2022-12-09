@@ -26,7 +26,6 @@ const ProductsItem: React.FC<Product> = ({
 }) => {
 	const { cartItems } = useAppSelecror(state => state.cart)
 	const dispatch = useDispatch()
-
 	const onAddToCart = (
 		id: number,
 		thumbnail: string,
@@ -74,30 +73,32 @@ const ProductsItem: React.FC<Product> = ({
 							{calcDiscountPrice(price, discountPercentage, 1)} $
 						</div>
 					</div>
-					{cartItems.some(item => item.id === id) ? (
-						<button
-							onClick={() => onRemoveFromCart(id)}
-							className={style.removeBtn}
-						>
-							<img src={cartAddedIcon} alt='Remove' width={35} />
-						</button>
-					) : (
-						<button
-							onClick={() =>
-								onAddToCart(
-									id,
-									thumbnail,
-									title,
-									brand,
-									price,
-									discountPercentage
-								)
-							}
-							className={style.addBtn}
-						>
-							<img src={addToCartIcon} alt='Add to cart' width={35} />
-						</button>
-					)}
+					<Link to='/products'>
+						{cartItems.some(item => item.id === id) ? (
+							<button
+								onClick={() => onRemoveFromCart(id)}
+								className={style.removeBtn}
+							>
+								<img src={cartAddedIcon} alt='Remove' width={35} />
+							</button>
+						) : (
+							<button
+								onClick={() =>
+									onAddToCart(
+										id,
+										thumbnail,
+										title,
+										brand,
+										price,
+										discountPercentage
+									)
+								}
+								className={style.addBtn}
+							>
+								<img src={addToCartIcon} alt='Add to cart' width={35} />
+							</button>
+						)}
+					</Link>
 				</div>
 			</div>
 		</Link>

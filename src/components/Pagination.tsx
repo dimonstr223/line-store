@@ -52,7 +52,7 @@ const Pagination: React.FC = ({}) => {
 			<button
 				className={style.button}
 				onClick={() => onLoadPrevClick()}
-				disabled={skipProducts === 0 || isLoading}
+				disabled={skipProducts === 0 || products.length < limit || isLoading}
 			>
 				Load prev
 			</button>
