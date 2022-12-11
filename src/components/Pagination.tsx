@@ -13,6 +13,8 @@ import { calcCountToSkip } from '../utils/calcCountToSkip'
 import { setSortingParam } from '../redux/filter/actions/filterActions'
 import ReactPaginate from 'react-paginate'
 import style from '../scss/components/Pagination.module.scss'
+import { AnyAction, Dispatch } from 'redux'
+import { ProductsAction } from '../redux/products/types/productsTypes'
 
 const Pagination: React.FC = () => {
 	const { limit, skipProducts, totalProducts } = useAppSelecror(
