@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import headerLogo from '../assets/images/header-logo.svg'
-import cartIcon from '../assets/images/cart.svg'
+import headerLogo from '../../assets/images/header-logo.svg'
+import cartIcon from '../../assets/images/cart.svg'
 
-import useAppSelecror from '../hooks/useAppSelector'
-import style from '../scss/components/Header.module.scss'
+import useAppSelecror from '../../hooks/useAppSelector'
+import style from '../../scss/components/Header.module.scss'
 
 const Header: React.FC = () => {
 	const { totalQuantity } = useAppSelecror(state => state.cart)

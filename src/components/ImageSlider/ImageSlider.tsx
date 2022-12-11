@@ -1,9 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import useAppSelecror from '../hooks/useAppSelector'
-import { setCurrentIndex } from '../redux/imageSlider/actions/imageSliderActions'
 
-import style from '../scss/components/ImageSlider.module.scss'
+import useAppSelecror from '../../hooks/useAppSelector'
+import { setCurrentIndex } from '../../redux/imageSlider/actions/imageSliderActions'
+
+import style from '../../scss/components/ImageSlider.module.scss'
 
 interface ImageSliderProps {
 	images: string[] | undefined
@@ -11,7 +12,7 @@ interface ImageSliderProps {
 }
 const ImageSlider: React.FC<ImageSliderProps> = ({ images, id }) => {
 	const { currentIndex } = useAppSelecror(state => state.imageSlider)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(setCurrentIndex(0))
@@ -34,6 +35,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, id }) => {
 	const onDotClick = (index: number) => {
 		dispatch(setCurrentIndex(index))
 	}
+
 	return (
 		<div className={style.slider}>
 			<div className={style.sliderDots}>

@@ -1,11 +1,11 @@
 import React from 'react'
 
 import successImage from '../../assets/images/success.svg'
-import BackToProductsButton from '../../components/BackToProductsButton'
+import BackToProductsButton from '../../components/BackToProductsButton/BackToProductsButton'
 
 import style from '../../scss/components/Success.module.scss'
 
-const Success = () => {
+const Success: React.FC = () => {
 	return (
 		<div className={style.success}>
 			<div className={style.img__wrapper}>

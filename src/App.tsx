@@ -1,10 +1,10 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
+import Layout from './components/Layout/Layout'
 
 import Cart from './Pages/Cart/Cart'
 import ProductPage from './Pages/ProductPage/ProductPage'
-import Products from './Pages/Products'
+import Products from './Pages/Products/Products'
 
 import './scss/App.scss'
 

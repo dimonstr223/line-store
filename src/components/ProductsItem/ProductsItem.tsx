@@ -1,11 +1,12 @@
 import React from 'react'
 import { Product } from '../../redux/products/types/productsTypes'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import addToCartIcon from '../../assets/images/add-to-cart-icon.svg'
 import cartAddedIcon from '../../assets/images/cart-added-icon.svg'
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
 
-import { useDispatch } from 'react-redux'
 import {
 	addToCart,
 	removeFromCart,
@@ -14,7 +15,6 @@ import {
 import useAppSelecror from '../../hooks/useAppSelector'
 
 import style from '../../scss/components/ProductsItem.module.scss'
-import { Link } from 'react-router-dom'
 
 const ProductsItem: React.FC<Product> = ({
 	id,
@@ -26,6 +26,7 @@ const ProductsItem: React.FC<Product> = ({
 }) => {
 	const { cartItems } = useAppSelecror(state => state.cart)
 	const dispatch = useDispatch()
+
 	const onAddToCart = (
 		id: number,
 		thumbnail: string,

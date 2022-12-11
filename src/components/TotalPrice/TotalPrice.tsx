@@ -1,15 +1,15 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import useAppSelecror from '../hooks/useAppSelector'
-import { clearCart } from '../redux/cart/actions/cartActions'
 
-import style from '../scss/components/TotalPrice.module.scss'
+import useAppSelecror from '../../hooks/useAppSelector'
+import { clearCart } from '../../redux/cart/actions/cartActions'
+
+import style from '../../scss/components/TotalPrice.module.scss'
 
 const TotalPrice: React.FC = () => {
 	const { cartItems, totalPrice, totalDiscountPrice, discount, totalQuantity } =
 		useAppSelecror(state => state.cart)
-	const dispatch: any = useDispatch()
-
+	const dispatch = useDispatch()
 
 	const onClearCart = () => {
 		if (window.confirm('Clear cart?')) dispatch(clearCart())

@@ -2,8 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
-import ImageSlider from '../../components/ImageSlider'
+
 import useAppSelecror from '../../hooks/useAppSelector'
+import ImageSlider from '../../components/ImageSlider/ImageSlider'
 import {
 	addToCart,
 	removeFromCart,
@@ -13,14 +14,14 @@ import {
 	getProductsOfCategory,
 	getSingleProduct,
 } from '../../redux/products/actions/productsAction'
-
 import calcDiscountPrice from '../../utils/calcDiscountPrice'
+
 import style from '../../scss/components/ProductPage.module.scss'
 
 const ProductPage: React.FC = () => {
 	const { singleProduct, products } = useAppSelecror(state => state.products)
 	const { cartItems } = useAppSelecror(state => state.cart)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 	const { id } = useParams()
 
 	React.useEffect(() => {

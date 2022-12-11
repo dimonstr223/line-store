@@ -16,7 +16,7 @@ import style from '../../../scss/components/Search.module.scss'
 const Search: React.FC = () => {
 	const { searchValue } = useAppSelecror(state => state.filter)
 	const { limit, skipProducts } = useAppSelecror(state => state.products)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		!searchValue && dispatch(getProducts(limit, skipProducts))

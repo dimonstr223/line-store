@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from '../../../hooks/useAppDispatch'
+import { useDispatch } from 'react-redux'
 import {
 	decreaseQuantity,
 	increaseQuantity,
@@ -13,7 +13,7 @@ interface QuantityProps {
 }
 
 const Quantity: React.FC<QuantityProps> = ({ id, quantity }) => {
-	const dispatch = useAppDispatch()
+	const dispatch = useDispatch()
 
 	const onIncrease = (id: number) => {
 		dispatch(increaseQuantity(id))

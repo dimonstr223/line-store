@@ -1,22 +1,19 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import useAppSelecror from '../hooks/useAppSelector'
+import useAppSelecror from '../../hooks/useAppSelector'
 import {
 	getCategories,
 	setIsOpened,
-} from '../redux/categories/actions/categoriesAction'
-import {
-	getProducts,
-	setCategoryName,
-} from '../redux/products/actions/productsAction'
-import closeIcon from '../assets/images/close-icon.svg'
+} from '../../redux/categories/actions/categoriesAction'
+import { setCategoryName } from '../../redux/products/actions/productsAction'
+import closeIcon from '../../assets/images/close-icon.svg'
 
-import style from '../scss/components/Categories.module.scss'
+import style from '../../scss/components/Categories.module.scss'
 
 const Categories: React.FC = () => {
 	const { categories, isOpened } = useAppSelecror(state => state.categories)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(getCategories())

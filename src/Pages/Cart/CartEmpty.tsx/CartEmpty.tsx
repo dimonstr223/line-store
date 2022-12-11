@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import emptyCartImage from '../../../assets/images/empty-cart.svg'
-import BackToProductsButton from '../../../components/BackToProductsButton'
+import BackToProductsButton from '../../../components/BackToProductsButton/BackToProductsButton'
 
 import style from '../../../scss/components/CartEmpty.module.scss'
 

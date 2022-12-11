@@ -1,18 +1,18 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import BackToProductsButton from '../../components/BackToProductsButton'
 
-import CartItem from '../../components/CartItem/CartItem'
-import TotalPrice from '../../components/TotalPrice'
 import useAppSelecror from '../../hooks/useAppSelector'
+import CartItem from '../../components/CartItem/CartItem'
+import BackToProductsButton from '../../components/BackToProductsButton/BackToProductsButton'
+import TotalPrice from '../../components/TotalPrice/TotalPrice'
+import CartEmpty from './CartEmpty.tsx/CartEmpty'
 import { setTotalInfo } from '../../redux/cart/actions/cartActions'
 
 import style from '../../scss/components/Cart.module.scss'
-import CartEmpty from './CartEmpty.tsx/CartEmpty'
 
 const Cart: React.FC = () => {
 	const { cartItems } = useAppSelecror(state => state.cart)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(setTotalInfo())

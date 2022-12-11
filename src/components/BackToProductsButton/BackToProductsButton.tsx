@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import style from '../scss/components/BackToProductsButton.module.scss'
+import style from '../../scss/components/BackToProductsButton.module.scss'
 
 const BackToProductsButton: React.FC = () => {
 	return (

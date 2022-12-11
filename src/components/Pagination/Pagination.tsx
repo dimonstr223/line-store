@@ -1,26 +1,24 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import ReactPaginate from 'react-paginate'
 
-import useAppSelecror from '../hooks/useAppSelector'
+import useAppSelecror from '../../hooks/useAppSelector'
 import {
 	getProducts,
 	setCurrentPage,
 	setSkipProducts,
-} from '../redux/products/actions/productsAction'
-import { calcPages } from '../utils/calcPages'
-import { calcCountToSkip } from '../utils/calcCountToSkip'
+} from '../../redux/products/actions/productsAction'
+import { calcPages } from '../../utils/calcPages'
+import { calcCountToSkip } from '../../utils/calcCountToSkip'
+import { setSortingParam } from '../../redux/filter/actions/filterActions'
 
-import { setSortingParam } from '../redux/filter/actions/filterActions'
-import ReactPaginate from 'react-paginate'
-import style from '../scss/components/Pagination.module.scss'
-import { AnyAction, Dispatch } from 'redux'
-import { ProductsAction } from '../redux/products/types/productsTypes'
+import style from '../../scss/components/Pagination.module.scss'
 
 const Pagination: React.FC = () => {
 	const { limit, skipProducts, totalProducts } = useAppSelecror(
 		state => state.products
 	)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(getProducts(limit, skipProducts))

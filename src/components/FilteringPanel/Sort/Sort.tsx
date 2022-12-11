@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import useAppSelecror from '../../../hooks/useAppSelector'
+
 import {
 	setIsPopupOpened,
 	setSortingParam,
@@ -20,7 +21,7 @@ interface SortProps {
 
 const Sort: React.FC<SortProps> = ({ products, isLoading }) => {
 	const { isPopupOpened, sortingParam } = useAppSelecror(state => state.filter)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		dispatch(sortProducts(sortingParam))

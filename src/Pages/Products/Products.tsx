@@ -6,11 +6,12 @@ import {
 	getProducts,
 	getProductsOfCategory,
 } from '../../redux/products/actions/productsAction'
+import type {} from 'redux-thunk/extend-redux'
 
-import ProductsItem from '../../components/ProductsItem'
-import Categories from '../../components/Categories'
-import Pagination from '../../components/Pagination'
-import FilteringPanel from '../../components/FilteringPanel'
+import ProductsItem from '../../components/ProductsItem/ProductsItem'
+import Categories from '../../components/Categories/Categories'
+import Pagination from '../../components/Pagination/Pagination'
+import FilteringPanel from '../../components/FilteringPanel/FilteringPanel'
 
 import style from '../../scss/components/Products.module.scss'
 
@@ -18,7 +19,7 @@ const Products: React.FC = React.memo(() => {
 	const { products, categoryName, limit, skipProducts } = useAppSelecror(
 		state => state.products
 	)
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
 		if (categoryName) {

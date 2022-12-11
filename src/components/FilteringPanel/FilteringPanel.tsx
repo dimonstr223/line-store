@@ -1,11 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 import useAppSelecror from '../../hooks/useAppSelector'
 import { setIsOpened } from '../../redux/categories/actions/categoriesAction'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 
-import Search from './Search'
-import Sort from './Sort'
+import Search from './Search/Search'
+import Sort from './Sort/Sort'
 
 import style from '../../scss/components/FilteringPanel.module.scss'
 
@@ -13,7 +13,7 @@ const FilteringPanel: React.FC = () => {
 	const { categoryName, products, isLoading } = useAppSelecror(
 		state => state.products
 	)
-	const dispatch = useAppDispatch()
+	const dispatch = useDispatch()
 
 	const onTitleHandler = () => {
 		dispatch(setIsOpened(true))

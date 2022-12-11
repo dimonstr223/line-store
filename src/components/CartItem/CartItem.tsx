@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { removeFromCart } from '../../redux/cart/actions/cartActions'
 import { ICartItem } from '../../redux/cart/types/cartTypes'
 
@@ -20,7 +19,7 @@ const CartItem: React.FC<ICartItem> = ({
 	discountPercentage,
 	quantity = 1,
 }) => {
-	const dispatch: any = useDispatch()
+	const dispatch = useDispatch()
 
 	const onRemoveFromCart = (id: number) => {
 		dispatch(removeFromCart(id))
