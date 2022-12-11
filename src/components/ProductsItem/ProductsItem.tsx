@@ -74,32 +74,34 @@ const ProductsItem: React.FC<Product> = ({
 							{calcDiscountPrice(price, discountPercentage, 1)} $
 						</div>
 					</div>
-					<Link to='/products'>
-						{cartItems.some(item => item.id === id) ? (
-							<button
-								onClick={() => onRemoveFromCart(id)}
-								className={style.removeBtn}
-							>
-								<img src={cartAddedIcon} alt='Remove' width={35} />
-							</button>
-						) : (
-							<button
-								onClick={() =>
-									onAddToCart(
-										id,
-										thumbnail,
-										title,
-										brand,
-										price,
-										discountPercentage
-									)
-								}
-								className={style.addBtn}
-							>
-								<img src={addToCartIcon} alt='Add to cart' width={35} />
-							</button>
-						)}
-					</Link>
+					{cartItems.some(item => item.id === id) ? (
+						<button
+							onClick={e => {
+								e.preventDefault()
+								onRemoveFromCart(id)
+							}}
+							className={style.removeBtn}
+						>
+							<img src={cartAddedIcon} alt='Remove' width={35} />
+						</button>
+					) : (
+						<button
+							onClick={e => {
+								e.preventDefault()
+								onAddToCart(
+									id,
+									thumbnail,
+									title,
+									brand,
+									price,
+									discountPercentage
+								)
+							}}
+							className={style.addBtn}
+						>
+							<img src={addToCartIcon} alt='Add to cart' width={35} />
+						</button>
+					)}
 				</div>
 			</div>
 		</Link>

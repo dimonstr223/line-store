@@ -13,7 +13,7 @@ const App: React.FC = () => {
 		<div className='app'>
 			<Routes>
 				<Route path='/' element={<Layout />}>
-					<Route path='/products' element={<Products />} />
+					<Route index element={<Products />} />
 					<Route path='products/:id' element={<ProductPage />} />
 					<Route path='cart' element={<Cart />} />
 				</Route>

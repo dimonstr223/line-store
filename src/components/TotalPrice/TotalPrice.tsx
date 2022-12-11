@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 
 import useAppSelecror from '../../hooks/useAppSelector'
 import { clearCart } from '../../redux/cart/actions/cartActions'
@@ -14,6 +15,7 @@ const TotalPrice: React.FC = () => {
 	const onClearCart = () => {
 		if (window.confirm('Clear cart?')) dispatch(clearCart())
 	}
+
 	return (
 		<div className={style.totalPrice}>
 			<ul className={style.totalPrice__list}>
