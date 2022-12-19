@@ -1,6 +1,8 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Slider from 'react-slick'
 import Layout from './components/Layout/Layout'
+import useAppSelecror from './hooks/useAppSelector'
 
 import Cart from './Pages/Cart/Cart'
 import ProductPage from './Pages/ProductPage/ProductPage'

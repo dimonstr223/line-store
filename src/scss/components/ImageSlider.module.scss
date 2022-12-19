@@ -1,73 +1,11 @@
 @import '../libs/vars';
-
-.slider {
-	display: flex;
-	gap: 10px;
-	height: 100%;
-	width: 100%;
-
-	.sliderDots {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		.item,
-		.activeDot {
-			box-sizing: content-box;
-			width: 100px;
-			height: 100px;
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
-
-		.activeDot {
-			border: 3px solid $blueAccent;
-		}
-	}
-
-	.sliderWrapper {
-		width: 100%;
-		position: relative;
-
-		&:hover {
-			.leftArrow,
-			.rightArrow {
-				opacity: 1;
-			}
-		}
-
-		.slide {
-			width: 100%;
-			min-height: 400px;
-			height: 100%;
-			background-size: contain;
-			background-color: #fff;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-
-		.leftArrow,
-		.rightArrow {
-			transition: opacity 0.2s;
-			opacity: 0;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			color: $blueAccent;
-			font-size: 70px;
-			left: 10px;
-			user-select: none;
-			cursor: pointer;
-		}
-		.rightArrow {
-			left: auto;
-			right: 10px;
-		}
-	}
+.image__wrapper {
+	width: 400px;
+	height: 400px;
 }
-
-@import '../media.scss';
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+// @import '../media.scss';

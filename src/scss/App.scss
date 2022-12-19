@@ -1,7 +1,10 @@
 @import './libs/vars';
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 .app {
 	min-height: 100vh;
+	color: #ebf3ff;
 }
 
 .container {
@@ -16,6 +19,35 @@
 .content__wrapper {
 	background: $mainBG;
 	min-height: calc(100vh - 100px);
+}
+
+.slick-slider {
+	max-width: 600px;
+
+	.slick-arrow {
+		z-index: 1;
+		color: $blueAccent;
+	}
+	.slick-prev {
+		left: 10px;
+	}
+	.slick-next {
+		right: 10px;
+	}
+
+	.slick-track {
+		max-height: 400px;
+
+		.slick-slide {
+			max-width: 600px;
+			max-height: 400px;
+			object-fit: contain;
+			img {
+				object-fit: contain;
+			}
+		}
+		// overflow: hidden;
+	}
 }
 
 @import './media.scss';
