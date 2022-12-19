@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/line-store/static/css/main.6c87d8d2.css",
+    "main.js": "/line-store/static/js/main.d6a03c08.js",
+    "static/js/787.10f9d83c.chunk.js": "/line-store/static/js/787.10f9d83c.chunk.js",
+    "static/media/empty-cart.svg": "/line-store/static/media/empty-cart.95d366507b1736cf8f8804ee031c0fbc.svg",
+    "static/media/header-logo.svg": "/line-store/static/media/header-logo.95d366507b1736cf8f8804ee031c0fbc.svg",
+    "static/media/slick.svg": "/line-store/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/line-store/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/line-store/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/line-store/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/line-store/index.html",
+    "static/media/cart.svg": "/line-store/static/media/cart.6053221530d43d5727ff7c3860c92d65.svg",
+    "static/media/close-icon.svg": "/line-store/static/media/close-icon.be7921757af6d23d5f3ca5e3c4f08a86.svg",
+    "static/media/add-to-cart-icon.svg": "/line-store/static/media/add-to-cart-icon.444fa7ff4ebef7c1b97215d8f4d43a02.svg",
+    "static/media/search-icon.svg": "/line-store/static/media/search-icon.a8e77bf49229c135c9a761751b28f649.svg",
+    "static/media/cart-added-icon.svg": "/line-store/static/media/cart-added-icon.32f97a76ae4fb8bd1bc8de040d4cd955.svg",
+    "main.6c87d8d2.css.map": "/line-store/static/css/main.6c87d8d2.css.map",
+    "main.d6a03c08.js.map": "/line-store/static/js/main.d6a03c08.js.map",
+    "787.10f9d83c.chunk.js.map": "/line-store/static/js/787.10f9d83c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c87d8d2.css",
+    "static/js/main.d6a03c08.js"
+  ]
+}
