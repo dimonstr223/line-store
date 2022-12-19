@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/line-store/static/css/main.6c87d8d2.css",
-    "main.js": "/line-store/static/js/main.d6a03c08.js",
+    "main.js": "/line-store/static/js/main.f685d75f.js",
     "static/js/787.10f9d83c.chunk.js": "/line-store/static/js/787.10f9d83c.chunk.js",
     "static/media/empty-cart.svg": "/line-store/static/media/empty-cart.95d366507b1736cf8f8804ee031c0fbc.svg",
     "static/media/header-logo.svg": "/line-store/static/media/header-logo.95d366507b1736cf8f8804ee031c0fbc.svg",
@@ -16,11 +16,11 @@
     "static/media/search-icon.svg": "/line-store/static/media/search-icon.a8e77bf49229c135c9a761751b28f649.svg",
     "static/media/cart-added-icon.svg": "/line-store/static/media/cart-added-icon.32f97a76ae4fb8bd1bc8de040d4cd955.svg",
     "main.6c87d8d2.css.map": "/line-store/static/css/main.6c87d8d2.css.map",
-    "main.d6a03c08.js.map": "/line-store/static/js/main.d6a03c08.js.map",
+    "main.f685d75f.js.map": "/line-store/static/js/main.f685d75f.js.map",
     "787.10f9d83c.chunk.js.map": "/line-store/static/js/787.10f9d83c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c87d8d2.css",
-    "static/js/main.d6a03c08.js"
+    "static/js/main.f685d75f.js"
   ]
 }
