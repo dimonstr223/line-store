@@ -56,6 +56,7 @@ export const getProducts =
 			dispatch(setProducts(data.products))
 			dispatch(setTotalProducts(data.total))
 			dispatch(setIsLoading(false))
+			console.log(data)
 		} catch (error) {
 			dispatch(setError(`Ошибка при загрузге товаров...${error}`))
 		}

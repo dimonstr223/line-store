@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { IProductItem } from "../redux-tk/products/types/productTypes"
 
 const instance = axios.create({
 	baseURL: 'https://dummyjson.com/',
@@ -6,7 +7,7 @@ const instance = axios.create({
 
 export const productsAPI = {
 	getProducts(limit: number, skipProducts: number) {
-		return instance.get(`products?limit=${limit}&skip=${skipProducts}`)
+		return instance.get<IProductItem[]>(`products?limit=${limit}&skip=${skipProducts}`)
 	},
 	getProductsOfCategory(categoryName: string) {
 		return instance.get(`products/category/${categoryName}`)

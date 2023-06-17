@@ -1,5 +1,6 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, FC } from 'react'
+import { useDispatch } from "react-redux"
+import useAppDispatch from '../../hooks/useAppDispatch'
 
 import useAppSelecror from '../../hooks/useAppSelector'
 import {
@@ -14,17 +15,20 @@ import Pagination from '../../components/Pagination/Pagination'
 import FilteringPanel from '../../components/FilteringPanel/FilteringPanel'
 
 import style from '../../scss/components/Products.module.scss'
+import { fetchProducts } from "../../redux-tk/products/thunk/productThunk"
 
-const Products: React.FC = React.memo(() => {
+const Products: FC = React.memo(() => {
 	const { products, categoryName, limit, skipProducts } = useAppSelecror(
 		state => state.products
 	)
 	const dispatch = useDispatch()
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (categoryName) {
 			dispatch(getProductsOfCategory(categoryName))
+			dispatch(getProductsOfCategory(categoryName))
 		} else {
+			dispatch(fetchProducts({ limit, skipProducts }))
 			dispatch(getProducts(limit, skipProducts))
 		}
 	}, [categoryName])

@@ -16,10 +16,7 @@ const initialState: ProductsState = {
 	currentPage: 1,
 }
 
-const productsReducer = (
-	state = initialState,
-	action: ProductsAction
-): ProductsState => {
+const productsReducer = (state = initialState, action: ProductsAction): ProductsState => {
 	switch (action.type) {
 		case ProductsActionType.SET_PRODUCTS:
 			return { ...state, products: action.payload }
